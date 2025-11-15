@@ -13,405 +13,412 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Georgia', 'Times New Roman', serif;
             line-height: 1.6;
             color: #1a1a1a;
             background: #ffffff;
-            overflow-x: hidden;
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 30px;
+            padding: 0 60px;
         }
         
-        /* Modern Header with Gradient */
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        /* Navigation */
+        nav {
+            background: #001f3d;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
             color: white;
-            padding: 100px 30px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-        
-        header .content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        header h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        header .tagline {
-            font-size: 1.6em;
+            font-size: 1.3em;
             font-weight: 300;
-            margin-bottom: 15px;
-            opacity: 0.95;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            letter-spacing: 1px;
         }
         
-        header .markets {
-            font-size: 1.2em;
-            opacity: 0.85;
+        nav .contact-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95em;
+            padding: 10px 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        nav .contact-link:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+        
+        /* Hero Section - McKinsey Style */
+        .hero {
+            background: #001f3d;
+            color: white;
+            padding: 120px 0 100px;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            line-height: 1.2;
+            margin-bottom: 30px;
             font-weight: 300;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Modern Intro Section */
-        .intro {
-            padding: 80px 30px;
-            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-            text-align: center;
-        }
-        
-        .intro p {
-            font-size: 1.4em;
             max-width: 900px;
-            margin: 0 auto;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.4em;
+            max-width: 750px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .hero .markets {
+            font-size: 1.1em;
+            opacity: 0.7;
+            font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        /* Value Proposition */
+        .value-prop {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .value-prop .container {
+            max-width: 1100px;
+        }
+        
+        .value-prop h2 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            color: #001f3d;
+            line-height: 1.3;
+        }
+        
+        .value-prop p {
+            font-size: 1.3em;
             color: #4a5568;
             line-height: 1.8;
             font-weight: 300;
+            margin-bottom: 30px;
         }
         
-        /* Services Section with Modern Cards */
-        .services {
-            padding: 80px 30px;
-            background: #ffffff;
+        /* Expertise Grid - McKinsey Cards Style */
+        .expertise {
+            padding: 100px 0;
+            background: #f8f9fa;
         }
         
-        .services h2 {
-            text-align: center;
+        .expertise h2 {
             font-size: 2.8em;
             margin-bottom: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+            font-weight: 300;
+            color: #001f3d;
+            text-align: center;
         }
         
-        .services-grid {
+        .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 35px;
-            max-width: 1200px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: #e2e8f0;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
-        .service-card {
-            background: #ffffff;
-            padding: 40px 35px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        .expertise-card {
+            background: white;
+            padding: 50px 40px;
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
         }
         
-        .service-card::before {
+        .expertise-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-            transform: scaleY(0);
+            width: 100%;
+            height: 3px;
+            background: #0066cc;
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
         
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-        
-        .service-card:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .service-card h3 {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            font-size: 1.4em;
-            font-weight: 600;
-        }
-        
-        .service-card p {
-            color: #4a5568;
-            line-height: 1.7;
-            font-size: 1.05em;
-        }
-        
-        /* Modern Difference Section */
-        .difference {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        .expertise-card:hover {
+            background: #001f3d;
             color: white;
-            padding: 80px 30px;
-            position: relative;
-            overflow: hidden;
         }
         
-        .difference::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
+        .expertise-card:hover::before {
+            transform: scaleX(1);
         }
         
-        .difference .content {
-            position: relative;
-            z-index: 1;
+        .expertise-card:hover h3 {
+            color: white;
         }
         
-        .difference h2 {
-            text-align: center;
+        .expertise-card:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: #001f3d;
+            transition: color 0.3s ease;
+        }
+        
+        .expertise-card p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #4a5568;
+            font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            transition: color 0.3s ease;
+        }
+        
+        /* Differentiation Section */
+        .differentiation {
+            padding: 100px 0;
+            background: #001f3d;
+            color: white;
+        }
+        
+        .differentiation h2 {
             font-size: 2.8em;
-            margin-bottom: 30px;
-            font-weight: 700;
+            margin-bottom: 50px;
+            font-weight: 300;
+            text-align: center;
         }
         
-        .difference > .content > p {
+        .differentiation .intro-text {
             font-size: 1.3em;
             max-width: 900px;
-            margin: 0 auto 50px;
+            margin: 0 auto 70px;
             text-align: center;
             line-height: 1.8;
-            opacity: 0.95;
+            opacity: 0.9;
             font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
-        .difference-points {
+        .diff-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
             max-width: 1100px;
             margin: 0 auto;
         }
         
-        .difference-point {
-            background: rgba(255,255,255,0.15);
-            padding: 35px 30px;
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+        .diff-item {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         
-        .difference-point:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-5px);
+        .diff-item h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 400;
         }
         
-        .difference-point h4 {
-            margin-bottom: 12px;
-            font-size: 1.3em;
-            font-weight: 600;
-        }
-        
-        .difference-point p {
-            font-size: 1.05em;
-            line-height: 1.6;
-            opacity: 0.9;
+        .diff-item p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            opacity: 0.85;
+            font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         /* Contact Section */
         .contact {
-            padding: 80px 30px;
+            padding: 100px 0;
+            background: white;
             text-align: center;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         }
         
         .contact h2 {
             font-size: 2.8em;
-            margin-bottom: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
+            margin-bottom: 20px;
+            font-weight: 300;
+            color: #001f3d;
         }
         
-        .contact-details {
-            max-width: 600px;
+        .contact .subtitle {
+            font-size: 1.3em;
+            color: #4a5568;
+            margin-bottom: 50px;
+            font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        
+        .contact-box {
+            max-width: 700px;
             margin: 0 auto;
-            background: white;
-            padding: 50px 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
+            padding: 50px;
+            background: #f8f9fa;
+            border-left: 3px solid #0066cc;
         }
         
         .contact-item {
-            margin: 30px 0;
+            margin: 25px 0;
             font-size: 1.15em;
         }
         
         .contact-item strong {
             display: block;
             margin-bottom: 8px;
-            color: #2d3748;
-            font-size: 0.9em;
+            color: #001f3d;
+            font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            letter-spacing: 2px;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
         .contact-item a {
-            color: #667eea;
+            color: #0066cc;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-        
-        .contact-item a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.3s ease;
+            font-weight: 400;
+            transition: color 0.2s ease;
         }
         
         .contact-item a:hover {
-            color: #764ba2;
-        }
-        
-        .contact-item a:hover::after {
-            width: 100%;
+            color: #001f3d;
         }
         
         /* Footer */
         footer {
-            background: #1a202c;
+            background: #001f3d;
             color: white;
+            padding: 40px 0;
             text-align: center;
-            padding: 40px 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         footer p {
-            opacity: 0.7;
-            font-size: 0.95em;
+            opacity: 0.6;
+            font-size: 0.9em;
+            font-weight: 300;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
-        /* Responsive Design */
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .expertise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2em;
+            .container {
+                padding: 0 30px;
             }
             
-            header .tagline {
-                font-size: 1.2em;
+            .hero h1 {
+                font-size: 2.5em;
             }
             
-            header .markets {
-                font-size: 1em;
-            }
-            
-            .services h2, .difference h2, .contact h2 {
-                font-size: 2em;
-            }
-            
-            .intro p {
+            .hero .subtitle {
                 font-size: 1.15em;
             }
             
-            .difference > .content > p {
-                font-size: 1.1em;
+            .value-prop h2,
+            .expertise h2,
+            .differentiation h2,
+            .contact h2 {
+                font-size: 2em;
             }
             
-            .services-grid,
-            .difference-points {
+            .expertise-grid {
                 grid-template-columns: 1fr;
+                gap: 1px;
+            }
+            
+            nav .container {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="content">
-            <h1>Nexus Health Operations</h1>
-            <p class="tagline">Healthcare Digital Transformation Advisory</p>
-            <p class="markets">NHS & Middle East Markets</p>
-        </div>
-    </header>
-
-    <section class="intro">
+    <nav>
         <div class="container">
-            <p>We bridge the gap between strategy and delivery—bringing NHS operational expertise to Electronic Patient Record implementations, data platform integration, and AI-enabled clinical workflows.</p>
+            <div class="logo">NEXUS HEALTH OPERATIONS</div>
+            <a href="mailto:bruno.nexusoperations@gmail.com" class="contact-link">Get in touch</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>What's your next transformation breakthrough?</h1>
+            <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
+            <p class="markets">Serving NHS | Saudi Arabia | UAE | Qatar</p>
         </div>
     </section>
 
-    <section class="services">
+    <section class="value-prop">
         <div class="container">
-            <h2>Our Expertise</h2>
-            <div class="services-grid">
-                <div class="service-card">
+            <h2>NHS operations insiders who actually deliver</h2>
+            <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the boardroom. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
+            <p>While Big Four consultancies excel at strategy, we focus on what happens after the PowerPoint deck: the complex, messy reality of implementation in live clinical environments.</p>
+        </div>
+    </section>
+
+    <section class="expertise">
+        <div class="container">
+            <h2>Our expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
                     <h3>Electronic Patient Record Strategy</h3>
                     <p>System selection, implementation readiness, clinical safety planning, and post-implementation optimisation across Epic and Oracle Health platforms.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="expertise-card">
                     <h3>Data Platform Integration</h3>
                     <p>Federated Data Platform deployment, Health Information Exchange design, Fast Healthcare Interoperability Resources implementation, and data migration strategies.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="expertise-card">
                     <h3>AI in Clinical Workflows</h3>
                     <p>Ambient voice technology integration, clinical decision support design, predictive patient risk stratification, and AI governance frameworks.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="expertise-card">
                     <h3>Digital Transformation Delivery</h3>
                     <p>Programme management, digital maturity assessments, business case development, and change management for complex healthcare transformations.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="expertise-card">
                     <h3>Interoperability Strategy</h3>
                     <p>Addressing the 73 documented barriers to healthcare interoperability through specialised technical expertise and operational delivery.</p>
                 </div>
                 
-                <div class="service-card">
+                <div class="expertise-card">
                     <h3>Fractional Leadership</h3>
                     <p>Interim Chief Information Officer and Chief Digital Officer services during recruitment, transformation phases, or capacity constraints.</p>
                 </div>
@@ -419,32 +426,30 @@
         </div>
     </section>
 
-    <section class="difference">
-        <div class="content">
-            <div class="container">
-                <h2>NHS Operations Insiders</h2>
-                <p>We've actually delivered at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the sidelines. Our team brings proven operational experience from Programme Management Office leadership and digital transformation budget holder roles.</p>
+    <section class="differentiation">
+        <div class="container">
+            <h2>Why organisations choose us</h2>
+            <p class="intro-text">We complement rather than compete with strategy firms. When McKinsey designs the transformation roadmap, we deliver it. When trusts need hands-on operational support, not another slide deck, we show up Monday morning ready to work.</p>
+            
+            <div class="diff-grid">
+                <div class="diff-item">
+                    <h3>Operational credibility</h3>
+                    <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
+                </div>
                 
-                <div class="difference-points">
-                    <div class="difference-point">
-                        <h4>Operational Credibility</h4>
-                        <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
-                    </div>
-                    
-                    <div class="difference-point">
-                        <h4>Clinical Engagement</h4>
-                        <p>Built relationships with clinical teams and operational staff—we understand workflow realities, not just theoretical frameworks.</p>
-                    </div>
-                    
-                    <div class="difference-point">
-                        <h4>Speed to Value</h4>
-                        <p>Start Monday versus Big Four's 3-month mobilisation. Direct partner access versus graduate-staffed delivery.</p>
-                    </div>
-                    
-                    <div class="difference-point">
-                        <h4>Cost-Effective Delivery</h4>
-                        <p>£1,200-1,800/day advisory rates versus Big Four's £2,000-5,000/day—60-70% cost advantage without compromising quality.</p>
-                    </div>
+                <div class="diff-item">
+                    <h3>Clinical engagement</h3>
+                    <p>Built relationships with clinical teams and operational staff. We understand workflow realities, not just theoretical frameworks.</p>
+                </div>
+                
+                <div class="diff-item">
+                    <h3>Speed to value</h3>
+                    <p>Start Monday versus Big Four's 3-month mobilisation. Direct partner access versus graduate-staffed delivery.</p>
+                </div>
+                
+                <div class="diff-item">
+                    <h3>Cost-effective delivery</h3>
+                    <p>£1,200-1,800/day advisory rates versus Big Four's £2,000-5,000/day—60-70% cost advantage without compromising quality.</p>
                 </div>
             </div>
         </div>
@@ -452,8 +457,10 @@
 
     <section class="contact">
         <div class="container">
-            <h2>Let's Talk</h2>
-            <div class="contact-details">
+            <h2>Let's discuss your transformation</h2>
+            <p class="subtitle">Whether you're navigating Electronic Patient Record selection, data platform integration, or AI strategy for clinical workflows</p>
+            
+            <div class="contact-box">
                 <div class="contact-item">
                     <strong>Email</strong>
                     <a href="mailto:bruno.nexusoperations@gmail.com">bruno.nexusoperations@gmail.com</a>
