@@ -61,11 +61,12 @@
             border-color: white;
         }
         
-        /* Hero Section - McKinsey Style */
+        /* Hero Section with Your Chosen Image */
         .hero {
-            background: #001f3d;
+            background: linear-gradient(rgba(0, 31, 61, 0.75), rgba(0, 31, 61, 0.85)), 
+                        url('https://images.unsplash.com/photo-1707756965230-5babf1f3ed7d?w=1600&q=80') center/cover;
             color: white;
-            padding: 120px 0 100px;
+            padding: 140px 0 120px;
             position: relative;
         }
         
@@ -82,7 +83,7 @@
             font-size: 1.4em;
             max-width: 750px;
             margin-bottom: 40px;
-            opacity: 0.9;
+            opacity: 0.95;
             font-weight: 300;
             line-height: 1.6;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -90,22 +91,26 @@
         
         .hero .markets {
             font-size: 1.1em;
-            opacity: 0.7;
+            opacity: 0.8;
             font-weight: 300;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         
-        /* Value Proposition */
+        /* Value Proposition with Side Image */
         .value-prop {
             padding: 100px 0;
             background: white;
         }
         
         .value-prop .container {
-            max-width: 1100px;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
         
-        .value-prop h2 {
+        .value-prop-content h2 {
             font-size: 2.8em;
             margin-bottom: 40px;
             font-weight: 300;
@@ -113,7 +118,7 @@
             line-height: 1.3;
         }
         
-        .value-prop p {
+        .value-prop-content p {
             font-size: 1.3em;
             color: #4a5568;
             line-height: 1.8;
@@ -121,7 +126,20 @@
             margin-bottom: 30px;
         }
         
-        /* Expertise Grid - McKinsey Cards Style */
+        .value-prop-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        
+        .value-prop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Expertise Grid */
         .expertise {
             padding: 100px 0;
             background: #f8f9fa;
@@ -197,10 +215,11 @@
             transition: color 0.3s ease;
         }
         
-        /* Differentiation Section */
+        /* Differentiation Section with Background */
         .differentiation {
             padding: 100px 0;
-            background: #001f3d;
+            background: linear-gradient(rgba(0, 31, 61, 0.92), rgba(0, 31, 61, 0.92)), 
+                        url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1600&q=80') center/cover fixed;
             color: white;
         }
         
@@ -331,11 +350,23 @@
             .diff-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .value-prop .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-prop-image {
+                max-height: 400px;
+            }
         }
         
         @media (max-width: 768px) {
             .container {
                 padding: 0 30px;
+            }
+            
+            .hero {
+                padding: 100px 0 80px;
             }
             
             .hero h1 {
@@ -346,11 +377,15 @@
                 font-size: 1.15em;
             }
             
-            .value-prop h2,
+            .value-prop-content h2,
             .expertise h2,
             .differentiation h2,
             .contact h2 {
                 font-size: 2em;
+            }
+            
+            .value-prop-content p {
+                font-size: 1.15em;
             }
             
             .expertise-grid {
@@ -361,6 +396,10 @@
             nav .container {
                 flex-direction: column;
                 gap: 20px;
+            }
+            
+            .value-prop-image {
+                display: none;
             }
         }
     </style>
@@ -383,9 +422,14 @@
 
     <section class="value-prop">
         <div class="container">
-            <h2>NHS operations insiders who actually deliver</h2>
-            <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the boardroom. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
-            <p>While Big Four consultancies excel at strategy, we focus on what happens after the PowerPoint deck: the complex, messy reality of implementation in live clinical environments.</p>
+            <div class="value-prop-content">
+                <h2>NHS operations insiders who actually deliver</h2>
+                <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the boardroom. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
+                <p>While Big Four consultancies excel at strategy, we focus on what happens after the PowerPoint deck: the complex, messy reality of implementation in live clinical environments.</p>
+            </div>
+            <div class="value-prop-image">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Healthcare professionals collaborating">
+            </div>
         </div>
     </section>
 
