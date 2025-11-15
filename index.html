@@ -15,69 +15,210 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1a1a1a;
             background: #ffffff;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
+        /* Modern Header with Gradient */
         header {
-            background: linear-gradient(135deg, #005eb8 0%, #003d7a 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             color: white;
-            padding: 80px 20px 60px;
+            padding: 100px 30px 80px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        header .content {
+            position: relative;
+            z-index: 1;
         }
         
         header h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         header .tagline {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: 300;
+            margin-bottom: 15px;
             opacity: 0.95;
-            margin-bottom: 10px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         
         header .markets {
-            font-size: 1.1em;
+            font-size: 1.2em;
             opacity: 0.85;
             font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
         
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Modern Intro Section */
         .intro {
-            padding: 60px 20px;
-            background: #f8f9fa;
+            padding: 80px 30px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
             text-align: center;
         }
         
         .intro p {
-            font-size: 1.2em;
-            max-width: 800px;
+            font-size: 1.4em;
+            max-width: 900px;
             margin: 0 auto;
-            color: #555;
+            color: #4a5568;
             line-height: 1.8;
+            font-weight: 300;
         }
         
+        /* Services Section with Modern Cards */
         .services {
-            padding: 60px 20px;
+            padding: 80px 30px;
+            background: #ffffff;
         }
         
         .services h2 {
             text-align: center;
-            font-size: 2.2em;
-            margin-bottom: 50px;
-            color: #005eb8;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
         
         .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: #ffffff;
+            padding: 40px 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .service-card h3 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+        
+        /* Modern Difference Section */
+        .difference {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 80px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .difference::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .difference .content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .difference h2 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .difference > .content > p {
+            font-size: 1.3em;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            text-align: center;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .difference-points {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -85,147 +226,150 @@
             margin: 0 auto;
         }
         
-        .service-card {
-            background: white;
-            padding: 35px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border-left: 4px solid #005eb8;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-        }
-        
-        .service-card h3 {
-            color: #005eb8;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-        
-        .service-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-        
-        .difference {
-            background: #005eb8;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .difference h2 {
-            font-size: 2.2em;
-            margin-bottom: 30px;
-        }
-        
-        .difference p {
-            font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            opacity: 0.95;
-        }
-        
-        .difference-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: left;
-        }
-        
         .difference-point {
-            background: rgba(255,255,255,0.1);
-            padding: 25px;
-            border-radius: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 35px 30px;
+            border-radius: 16px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .difference-point:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
         }
         
         .difference-point h4 {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: #ffffff;
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 600;
         }
         
         .difference-point p {
-            font-size: 0.95em;
-            margin: 0;
+            font-size: 1.05em;
+            line-height: 1.6;
             opacity: 0.9;
         }
         
+        /* Contact Section */
         .contact {
-            padding: 60px 20px;
+            padding: 80px 30px;
             text-align: center;
-            background: #f8f9fa;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
         }
         
         .contact h2 {
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            color: #005eb8;
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
         
         .contact-details {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
         }
         
         .contact-item {
-            margin: 20px 0;
-            font-size: 1.1em;
+            margin: 30px 0;
+            font-size: 1.15em;
+        }
+        
+        .contact-item strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .contact-item a {
-            color: #005eb8;
+            color: #667eea;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
         }
         
         .contact-item a:hover {
-            color: #003d7a;
-            text-decoration: underline;
+            color: #764ba2;
         }
         
+        .contact-item a:hover::after {
+            width: 100%;
+        }
+        
+        /* Footer */
         footer {
-            background: #333;
+            background: #1a202c;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9em;
+            padding: 40px 30px;
         }
         
         footer p {
-            opacity: 0.8;
+            opacity: 0.7;
+            font-size: 0.95em;
         }
         
+        /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             header .tagline {
-                font-size: 1.1em;
+                font-size: 1.2em;
+            }
+            
+            header .markets {
+                font-size: 1em;
             }
             
             .services h2, .difference h2, .contact h2 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             
-            .intro p, .difference p {
-                font-size: 1.05em;
+            .intro p {
+                font-size: 1.15em;
+            }
+            
+            .difference > .content > p {
+                font-size: 1.1em;
+            }
+            
+            .services-grid,
+            .difference-points {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="content">
             <h1>Nexus Health Operations</h1>
             <p class="tagline">Healthcare Digital Transformation Advisory</p>
             <p class="markets">NHS & Middle East Markets</p>
@@ -276,29 +420,31 @@
     </section>
 
     <section class="difference">
-        <div class="container">
-            <h2>NHS Operations Insiders</h2>
-            <p>We've actually delivered at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the sidelines. Our team brings proven operational experience from Programme Management Office leadership and digital transformation budget holder roles.</p>
-            
-            <div class="difference-points">
-                <div class="difference-point">
-                    <h4>Operational Credibility</h4>
-                    <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
-                </div>
+        <div class="content">
+            <div class="container">
+                <h2>NHS Operations Insiders</h2>
+                <p>We've actually delivered at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the sidelines. Our team brings proven operational experience from Programme Management Office leadership and digital transformation budget holder roles.</p>
                 
-                <div class="difference-point">
-                    <h4>Clinical Engagement</h4>
-                    <p>Built relationships with clinical teams and operational staff—we understand workflow realities, not just theoretical frameworks.</p>
-                </div>
-                
-                <div class="difference-point">
-                    <h4>Speed to Value</h4>
-                    <p>Start Monday versus Big Four's 3-month mobilisation. Direct partner access versus graduate-staffed delivery.</p>
-                </div>
-                
-                <div class="difference-point">
-                    <h4>Cost-Effective Delivery</h4>
-                    <p>£1,200-1,800/day advisory rates versus Big Four's £2,000-5,000/day—60-70% cost advantage without compromising quality.</p>
+                <div class="difference-points">
+                    <div class="difference-point">
+                        <h4>Operational Credibility</h4>
+                        <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Clinical Engagement</h4>
+                        <p>Built relationships with clinical teams and operational staff—we understand workflow realities, not just theoretical frameworks.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Speed to Value</h4>
+                        <p>Start Monday versus Big Four's 3-month mobilisation. Direct partner access versus graduate-staffed delivery.</p>
+                    </div>
+                    
+                    <div class="difference-point">
+                        <h4>Cost-Effective Delivery</h4>
+                        <p>£1,200-1,800/day advisory rates versus Big Four's £2,000-5,000/day—60-70% cost advantage without compromising quality.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -309,16 +455,16 @@
             <h2>Let's Talk</h2>
             <div class="contact-details">
                 <div class="contact-item">
-                    <strong>Email:</strong><br>
+                    <strong>Email</strong>
                     <a href="mailto:bruno.nexusoperations@gmail.com">bruno.nexusoperations@gmail.com</a>
                 </div>
                 <div class="contact-item">
-                    <strong>Website:</strong><br>
+                    <strong>Website</strong>
                     <a href="https://nexushealthoperations.co.uk">nexushealthoperations.co.uk</a>
                 </div>
                 <div class="contact-item">
-                    <strong>Markets:</strong><br>
-                    United Kingdom (NHS) | Saudi Arabia | UAE | Qatar
+                    <strong>Markets</strong>
+                    <div style="color: #4a5568; margin-top: 5px;">United Kingdom (NHS) | Saudi Arabia | UAE | Qatar</div>
                 </div>
             </div>
         </div>
