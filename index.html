@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nexus Health Operations - Healthcare Digital Transformation Advisory for NHS and Middle East Markets">
+    <title>Nexus Health Operations | Healthcare Digital Transformation Advisory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #005eb8 0%, #003d7a 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        header .tagline {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        header .markets {
+            font-size: 1.1em;
+            opacity: 0.85;
+            font-weight: 300;
+        }
+        
+        .intro {
+            padding: 60px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        
+        .intro p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .services {
+            padding: 60px 20px;
+        }
+        
+        .services h2 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 50px;
+            color: #005eb8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid #005eb8;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        
+        .service-card h3 {
+            color: #005eb8;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .difference {
+            background: #005eb8;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .difference h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        
+        .difference p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+        
+        .difference-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .difference-point {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .difference-point h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            color: #ffffff;
+        }
+        
+        .difference-point p {
+            font-size: 0.95em;
+            margin: 0;
+            opacity: 0.9;
+        }
+        
+        .contact {
+            padding: 60px 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+        
+        .contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #005eb8;
+        }
+        
+        .contact-details {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .contact-item {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        
+        .contact-item a {
+            color: #005eb8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: #003d7a;
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header .tagline {
+                font-size: 1.1em;
+            }
+            
+            .services h2, .difference h2, .contact h2 {
+                font-size: 1.8em;
+            }
+            
+            .intro p, .difference p {
+                font-size: 1.05em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Nexus Health Operations</h1>
+            <p class="tagline">Healthcare Digital Transformation Advisory</p>
+            <p class="markets">NHS & Middle East Markets</p>
+        </div>
+    </header>
+
+    <section class="intro">
+        <div class="container">
+            <p>We bridge the gap between strategy and delivery—bringing NHS operational expertise to Electronic Patient Record implementations, data platform integration, and AI-enabled clinical workflows.</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>Our Expertise</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Electronic Patient Record Strategy</h3>
+                    <p>System selection, implementation readiness, clinical safety planning, and post-implementation optimisation across Epic and Oracle Health platforms.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Data Platform Integration</h3>
+                    <p>Federated Data Platform deployment, Health Information Exchange design, Fast Healthcare Interoperability Resources implementation, and data migration strategies.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>AI in Clinical Workflows</h3>
+                    <p>Ambient voice technology integration, clinical decision support design, predictive patient risk stratification, and AI governance frameworks.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Digital Transformation Delivery</h3>
+                    <p>Programme management, digital maturity assessments, business case development, and change management for complex healthcare transformations.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Interoperability Strategy</h3>
+                    <p>Addressing the 73 documented barriers to healthcare interoperability through specialised technical expertise and operational delivery.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Fractional Leadership</h3>
+                    <p>Interim Chief Information Officer and Chief Digital Officer services during recruitment, transformation phases, or capacity constraints.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="difference">
+        <div class="container">
+            <h2>NHS Operations Insiders</h2>
+            <p>We've actually delivered at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the sidelines. Our team brings proven operational experience from Programme Management Office leadership and digital transformation budget holder roles.</p>
+            
+            <div class="difference-points">
+                <div class="difference-point">
+                    <h4>Operational Credibility</h4>
+                    <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
+                </div>
+                
+                <div class="difference-point">
+                    <h4>Clinical Engagement</h4>
+                    <p>Built relationships with clinical teams and operational staff—we understand workflow realities, not just theoretical frameworks.</p>
+                </div>
+                
+                <div class="difference-point">
+                    <h4>Speed to Value</h4>
+                    <p>Start Monday versus Big Four's 3-month mobilisation. Direct partner access versus graduate-staffed delivery.</p>
+                </div>
+                
+                <div class="difference-point">
+                    <h4>Cost-Effective Delivery</h4>
+                    <p>£1,200-1,800/day advisory rates versus Big Four's £2,000-5,000/day—60-70% cost advantage without compromising quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Let's Talk</h2>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>Email:</strong><br>
+                    <a href="mailto:bruno.nexusoperations@gmail.com">bruno.nexusoperations@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Website:</strong><br>
+                    <a href="https://nexushealthoperations.co.uk">nexushealthoperations.co.uk</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Markets:</strong><br>
+                    United Kingdom (NHS) | Saudi Arabia | UAE | Qatar
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nexus Health Operations. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
