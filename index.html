@@ -7,26 +7,17 @@
     <title>Nexus Health Operations | Healthcare Digital Transformation Advisory</title>
     <style>
         :root {
-            --navy-dark: #001f3d;
-            --navy-medium: #003d7a;
-            --blue-accent: #0066cc;
-            --blue-light: #4a90e2;
-            --gray-dark: #2d3748;
-            --gray-medium: #4a5568;
-            --gray-light: #cbd5e0;
-            --gray-bg: #f8f9fa;
+            --navy-dark: #0a1628;
+            --navy-medium: #1a2942;
+            --blue-bright: #00d4ff;
+            --blue-electric: #0099ff;
+            --purple-neon: #a855f7;
+            --teal-bright: #00ffcc;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-tech: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #a855f7 100%);
+            --gradient-glow: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(168, 85, 247, 0.3));
             --white: #ffffff;
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 1rem;
-            --spacing-md: 2rem;
-            --spacing-lg: 4rem;
-            --spacing-xl: 6rem;
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+            --gray-light: #e2e8f0;
         }
         
         * {
@@ -40,10 +31,10 @@
         }
         
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--gray-dark);
-            background: var(--white);
+            color: #1a1a1a;
+            background: var(--navy-dark);
             overflow-x: hidden;
         }
         
@@ -53,127 +44,165 @@
             padding: 0 clamp(1.5rem, 5vw, 3.75rem);
         }
         
-        /* Navigation with scroll effect */
+        /* Animated tech grid background */
+        .tech-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        /* Navigation with glow */
         nav {
-            background: var(--navy-dark);
+            background: rgba(10, 22, 40, 0.95);
             padding: 1.25rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-medium);
-        }
-        
-        nav.scrolled {
-            box-shadow: var(--shadow-md);
-            padding: 0.875rem 0;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
         
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: var(--spacing-md);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
         }
         
         nav .logo {
             color: var(--white);
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            font-weight: 300;
-            letter-spacing: 1px;
-            transition: transform var(--transition-medium);
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
         }
         
-        nav .logo:hover {
-            transform: translateX(4px);
+        nav .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient-tech);
+            box-shadow: 0 0 10px var(--blue-bright);
         }
         
         nav .contact-link {
             color: var(--white);
             text-decoration: none;
             font-size: 0.95rem;
-            padding: 0.625rem 1.5rem;
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 4px;
-            transition: all var(--transition-medium);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 0.75rem 2rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: var(--gradient-tech);
+            background-clip: padding-box;
             position: relative;
-            overflow: hidden;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         nav .contact-link::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.1);
-            transition: left var(--transition-medium);
-        }
-        
-        nav .contact-link:hover::before {
-            left: 0;
+            inset: 0;
+            border-radius: 50px;
+            padding: 2px;
+            background: var(--gradient-tech);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
         }
         
         nav .contact-link:hover {
-            border-color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
         
-        /* Hero with advanced animations */
+        /* Hero with futuristic overlay */
         .hero {
-            background-image: linear-gradient(rgba(0, 31, 61, 0.65), rgba(0, 31, 61, 0.75)), 
-                              url('https://images.unsplash.com/photo-1707756965230-5babf1f3ed7d?w=1920&q=80');
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9), rgba(26, 41, 66, 0.85)), 
+                        url('https://images.unsplash.com/photo-1707756965230-5babf1f3ed7d?w=1920&q=80') center/cover;
             color: var(--white);
-            padding: clamp(5rem, 12vh, 8.75rem) 0 clamp(4rem, 10vh, 7.5rem);
+            padding: clamp(6rem, 15vh, 10rem) 0 clamp(5rem, 12vh, 8rem);
             position: relative;
             overflow: hidden;
         }
         
-        .hero::after {
+        .hero::before {
             content: '';
             position: absolute;
-            bottom: -2px;
+            top: 0;
             left: 0;
             right: 0;
-            height: 100px;
-            background: linear-gradient(to top, var(--white), transparent);
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.15), transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.15), transparent 50%);
+            pointer-events: none;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 1.2;
-            margin-bottom: var(--spacing-md);
-            font-weight: 300;
-            max-width: 900px;
-            letter-spacing: -0.5px;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            max-width: 1000px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--blue-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: fadeInUp 0.8s ease-out;
+            text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
         }
         
         .hero .subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            max-width: 750px;
-            margin-bottom: var(--spacing-md);
-            opacity: 0;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            max-width: 850px;
+            margin-bottom: 2.5rem;
             font-weight: 300;
-            line-height: 1.7;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.8;
+            opacity: 0;
             animation: fadeInUp 0.8s ease-out 0.2s forwards;
+            color: rgba(255, 255, 255, 0.95);
         }
         
         .hero .markets {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            font-weight: 500;
             opacity: 0;
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             animation: fadeInUp 0.8s ease-out 0.4s forwards;
+            color: var(--blue-bright);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
         @keyframes fadeInUp {
@@ -187,145 +216,220 @@
             }
         }
         
-        /* Value proposition with enhanced grid */
-        .value-prop {
-            padding: clamp(4rem, 10vh, 6.25rem) 0;
-            background: var(--white);
+        /* Mission statement with image */
+        .mission {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
             position: relative;
-        }
-        
-        .value-prop .container {
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: clamp(2rem, 5vw, 4rem);
-            align-items: center;
-        }
-        
-        .value-prop-content h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: var(--spacing-md);
-            font-weight: 300;
-            color: var(--navy-dark);
-            line-height: 1.3;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 0.2s;
-        }
-        
-        .value-prop-content p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--gray-medium);
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: var(--spacing-md);
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        
-        .value-prop-content p:nth-of-type(1) {
-            animation-delay: 0.3s;
-        }
-        
-        .value-prop-content p:nth-of-type(2) {
-            animation-delay: 0.4s;
-        }
-        
-        .value-prop-image {
-            border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-            opacity: 0;
-            animation: fadeInRight 0.8s ease-out 0.5s forwards;
-            transition: transform var(--transition-medium);
         }
         
-        .value-prop-image:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
-        }
-        
-        .value-prop-image::before {
+        .mission::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 102, 204, 0.1), transparent);
-            opacity: 0;
-            transition: opacity var(--transition-medium);
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
         }
         
-        .value-prop-image:hover::before {
-            opacity: 1;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.5; }
         }
         
-        .value-prop-image img {
+        .mission .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mission-content h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .mission-content p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+        }
+        
+        .mission-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-glow);
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .mission-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform var(--transition-slow);
+            transition: transform 0.5s ease;
         }
         
-        .value-prop-image:hover img {
+        .mission-image:hover img {
             transform: scale(1.05);
         }
         
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        /* Expertise section with enhanced cards */
-        .expertise {
-            padding: clamp(4rem, 10vh, 6.25rem) 0;
-            background: var(--gray-bg);
+        /* Technology showcase with multiple images */
+        .tech-showcase {
+            background: #ffffff;
+            padding: clamp(5rem, 12vh, 8rem) 0;
             position: relative;
         }
         
-        .expertise::before {
+        .tech-showcase h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-align: center;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tech-showcase .subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tech-grid-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .tech-image-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+        
+        .tech-image-card::before {
             content: '';
             position: absolute;
-            top: 0;
+            inset: 0;
+            background: var(--gradient-tech);
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+        
+        .tech-image-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 153, 255, 0.3);
+        }
+        
+        .tech-image-card:hover::before {
+            opacity: 0.3;
+        }
+        
+        .tech-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .tech-image-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .tech-image-overlay {
+            position: absolute;
+            bottom: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gray-light), transparent);
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            z-index: 2;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+        
+        .tech-image-card:hover .tech-image-overlay {
+            transform: translateY(0);
+        }
+        
+        .tech-image-overlay h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-image-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+        
+        /* Expertise with gradient cards */
+        .expertise {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            position: relative;
         }
         
         .expertise h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: clamp(2.5rem, 5vh, 3.75rem);
-            font-weight: 300;
-            color: var(--navy-dark);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 4rem;
+            font-weight: 700;
             text-align: center;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .expertise-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-            gap: 2px;
-            background: var(--gray-light);
-            max-width: 1300px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+            gap: 2rem;
+            max-width: 1400px;
             margin: 0 auto;
-            box-shadow: var(--shadow-md);
         }
         
         .expertise-card {
-            background: var(--white);
-            padding: clamp(2rem, 4vw, 3.125rem) clamp(1.5rem, 3vw, 2.5rem);
-            transition: all var(--transition-medium);
+            background: rgba(26, 41, 66, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
             position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
         }
         
         .expertise-card::before {
@@ -335,29 +439,27 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--blue-accent), var(--blue-light));
+            background: var(--gradient-tech);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: transform var(--transition-medium);
+            transition: transform 0.4s ease;
         }
         
         .expertise-card::after {
-            content: '→';
+            content: '';
             position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            font-size: 1.5rem;
-            color: var(--blue-accent);
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all var(--transition-medium);
+            top: 50%;
+            left: 50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.6s ease;
         }
         
         .expertise-card:hover {
-            background: var(--navy-dark);
-            color: var(--white);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            border-color: var(--blue-bright);
         }
         
         .expertise-card:hover::before {
@@ -365,220 +467,248 @@
         }
         
         .expertise-card:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .expertise-card:hover h3 {
-            color: var(--white);
-            transform: translateX(4px);
-        }
-        
-        .expertise-card:hover p {
-            color: rgba(255,255,255,0.9);
+            transform: translate(-50%, -50%) scale(1);
         }
         
         .expertise-card h3 {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            margin-bottom: var(--spacing-sm);
-            font-weight: 400;
-            color: var(--navy-dark);
-            transition: all var(--transition-medium);
-        }
-        
-        .expertise-card p {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--gray-medium);
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            transition: color var(--transition-medium);
-        }
-        
-        /* Differentiation with parallax effect */
-        .differentiation {
-            padding: clamp(4rem, 10vh, 6.25rem) 0;
-            background: linear-gradient(rgba(0, 31, 61, 0.92), rgba(0, 31, 61, 0.92)), 
-                        url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1600&q=80') center/cover fixed;
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
             color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .differentiation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(74, 144, 226, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(0, 102, 204, 0.1) 0%, transparent 50%);
-        }
-        
-        .differentiation .container {
+            font-weight: 600;
             position: relative;
             z-index: 1;
         }
         
+        .expertise-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.85);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Stats section with images */
+        .stats-section {
+            background: #ffffff;
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            position: relative;
+        }
+        
+        .stats-content {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .stats-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stats-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .stats-text h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1));
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 153, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+        
+        /* Differentiation */
+        .differentiation {
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(26, 41, 66, 0.95)), 
+                        url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1600&q=80') center/cover fixed;
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            color: var(--white);
+            position: relative;
+        }
+        
         .differentiation h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: var(--spacing-md);
-            font-weight: 300;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
             text-align: center;
+            color: var(--white);
         }
         
         .differentiation .intro-text {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-size: 1.4rem;
             max-width: 900px;
-            margin: 0 auto var(--spacing-lg);
+            margin: 0 auto 4rem;
             text-align: center;
             line-height: 1.8;
-            opacity: 0.95;
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .diff-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
-            gap: clamp(2rem, 4vw, 3.125rem);
-            max-width: 1100px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+            gap: 3rem;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
         .diff-item {
-            padding: var(--spacing-md) 0;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            transition: all var(--transition-medium);
-            position: relative;
-        }
-        
-        .diff-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--white);
-            transition: width var(--transition-medium);
-        }
-        
-        .diff-item:hover::before {
-            width: 60px;
+            background: rgba(26, 41, 66, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            transition: all 0.4s ease;
         }
         
         .diff-item:hover {
-            transform: translateX(8px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
+            border-color: var(--blue-bright);
         }
         
         .diff-item h3 {
-            font-size: clamp(1.3rem, 2vw, 1.6rem);
-            margin-bottom: var(--spacing-sm);
-            font-weight: 400;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--blue-bright);
         }
         
         .diff-item p {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            opacity: 0.85;
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
         }
         
-        /* Contact section with glassmorphism */
+        /* Contact with futuristic card */
         .contact {
-            padding: clamp(4rem, 10vh, 6.25rem) 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
             text-align: center;
             position: relative;
         }
         
         .contact h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: var(--spacing-sm);
-            font-weight: 300;
-            color: var(--navy-dark);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .contact .subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            color: var(--gray-medium);
-            margin-bottom: var(--spacing-lg);
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 4rem;
         }
         
         .contact-box {
             max-width: 700px;
             margin: 0 auto;
-            padding: clamp(2rem, 4vw, 3.125rem);
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 102, 204, 0.1);
-            box-shadow: var(--shadow-lg);
-            transition: all var(--transition-medium);
+            padding: 3.5rem;
+            background: rgba(26, 41, 66, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+            position: relative;
         }
         
-        .contact-box:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
-            border-color: var(--blue-accent);
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 24px;
+            padding: 2px;
+            background: var(--gradient-tech);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .contact-box:hover::before {
+            opacity: 1;
         }
         
         .contact-item {
-            margin: var(--spacing-md) 0;
-            font-size: 1.15rem;
-            position: relative;
-            padding: var(--spacing-sm) 0;
-        }
-        
-        .contact-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gray-light), transparent);
+            margin: 2.5rem 0;
+            font-size: 1.2rem;
         }
         
         .contact-item strong {
             display: block;
-            margin-bottom: var(--spacing-xs);
-            color: var(--navy-dark);
-            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+            color: var(--blue-bright);
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            letter-spacing: 3px;
+            font-weight: 700;
         }
         
         .contact-item a {
-            color: var(--blue-accent);
+            color: var(--white);
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 500;
             position: relative;
             display: inline-block;
-            transition: all var(--transition-fast);
+            transition: all 0.3s ease;
         }
         
         .contact-item a::after {
             content: '';
             position: absolute;
-            bottom: -2px;
+            bottom: -4px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--blue-accent), var(--blue-light));
-            transition: width var(--transition-medium);
+            background: var(--gradient-tech);
+            box-shadow: 0 0 10px var(--blue-bright);
+            transition: width 0.3s ease;
         }
         
         .contact-item a:hover {
-            color: var(--navy-dark);
+            color: var(--blue-bright);
             transform: translateX(4px);
         }
         
@@ -588,84 +718,67 @@
         
         /* Footer */
         footer {
-            background: var(--navy-dark);
+            background: rgba(10, 22, 40, 0.98);
             color: var(--white);
-            padding: var(--spacing-md) 0;
+            padding: 2.5rem 0;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
         }
         
         footer p {
             opacity: 0.6;
-            font-size: 0.9rem;
-            font-weight: 300;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.95rem;
         }
         
-        /* Responsive breakpoints */
+        /* Responsive */
         @media (max-width: 1024px) {
-            .expertise-grid {
+            .tech-grid-images {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mission .container,
+            .stats-content {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
-                gap: var(--spacing-sm);
+                gap: 1rem;
             }
             
-            .hero {
-                background-attachment: scroll;
-            }
-            
-            .value-prop .container {
+            .tech-grid-images {
                 grid-template-columns: 1fr;
             }
             
-            .value-prop-image {
-                max-height: 400px;
-            }
-            
-            .expertise-grid {
+            .stats-grid {
                 grid-template-columns: 1fr;
-                gap: 1px;
             }
             
             .diff-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .value-prop-image {
-                display: none;
+            
+            .mission .container {
+                gap: 2rem;
             }
         }
         
-        /* Smooth scroll padding for fixed nav */
-        html {
-            scroll-padding-top: 80px;
-        }
-        
-        /* Accessibility improvements */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
-            }
-            
-            .hero {
-                background-attachment: scroll;
             }
         }
     </style>
 </head>
 <body>
+    <div class="tech-grid"></div>
+    
     <nav id="nav">
         <div class="container">
-            <div class="logo">NEXUS HEALTH OPERATIONS</div>
+            <div class="logo">Nexus Health Operations</div>
             <a href="mailto:bruno.nexusoperations@gmail.com" class="contact-link">Get in touch</a>
         </div>
     </nav>
@@ -678,15 +791,78 @@
         </div>
     </section>
 
-    <section class="value-prop">
+    <section class="mission">
         <div class="container">
-            <div class="value-prop-content">
-                <h2>NHS operations insiders who actually deliver</h2>
-                <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems—not just advised from the boardroom. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
-                <p>While Big Four consultancies excel at strategy, we focus on what happens after the PowerPoint deck: the complex, messy reality of implementation in live clinical environments.</p>
+            <div class="mission-content">
+                <h2>The intersection of healthcare and technology innovation</h2>
+                <p>Nexus represents the connection point—where clinical expertise meets cutting-edge technology, where strategy transforms into delivery, where complex systems integrate seamlessly.</p>
+                <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
             </div>
-            <div class="value-prop-image">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Healthcare professionals collaborating">
+            <div class="mission-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare technology innovation">
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-showcase">
+        <div class="container">
+            <h2>Powering healthcare transformation</h2>
+            <p class="subtitle">From Electronic Patient Records to AI-enabled workflows, we connect the dots that make digital healthcare work</p>
+            
+            <div class="tech-grid-images">
+                <div class="tech-image-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="Healthcare professionals">
+                    <div class="tech-image-overlay">
+                        <h3>Clinical Engagement</h3>
+                        <p>Building relationships with clinical teams</p>
+                    </div>
+                </div>
+                <div class="tech-image-card">
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=600&q=80" alt="Data analytics">
+                    <div class="tech-image-overlay">
+                        <h3>Data Platform Integration</h3>
+                        <p>Connecting systems, unlocking insights</p>
+                    </div>
+                </div>
+                <div class="tech-image-card">
+                    <img src="https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=600&q=80" alt="Digital transformation">
+                    <div class="tech-image-overlay">
+                        <h3>AI & Innovation</h3>
+                        <p>Future-forward clinical workflows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-content">
+                <div class="stats-image">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80" alt="Technology and healthcare">
+                </div>
+                <div class="stats-text">
+                    <h2>Delivering measurable impact across healthcare systems</h2>
+                    <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 2rem; line-height: 1.8;">While Big Four consultancies excel at strategy, we focus on what happens after the PowerPoint deck: the complex, messy reality of implementation in live clinical environments.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">27</div>
+                            <div class="stat-label">Integrated Care Boards</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">90+</div>
+                            <div class="stat-label">NHS Trusts</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">£35B</div>
+                            <div class="stat-label">Productivity Savings Target</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">96%</div>
+                            <div class="stat-label">EPR Adoption Goal</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -765,7 +941,7 @@
             <div class="contact-box">
                 <div class="contact-item">
                     <strong>Email</strong>
-                    <a href="mailto:bruno.nexusoperations@gmail.com">bruno.nexusoperations@gmail.com</a>
+                    <a href="mailto:bruno.nexusoperations@gmail.com">nexusoperations@gmail.com</a>
                 </div>
                 <div class="contact-item">
                     <strong>Website</strong>
@@ -773,7 +949,7 @@
                 </div>
                 <div class="contact-item">
                     <strong>Markets</strong>
-                    <div style="color: var(--gray-medium); margin-top: 0.5rem;">United Kingdom (NHS) | Saudi Arabia | UAE | Qatar</div>
+                    <div style="color: rgba(255,255,255,0.8); margin-top: 0.5rem; font-size: 1.1rem;">United Kingdom (NHS) | Saudi Arabia | UAE | Qatar</div>
                 </div>
             </div>
         </div>
