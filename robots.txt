@@ -1,0 +1,19 @@
+# robots.txt for Nexus Health Operations
+# https://nexushealthoperations.co.uk/robots.txt
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://nexushealthoperations.co.uk/sitemap.xml
+
+# Crawl-delay for polite crawlers (optional)
+# Crawl-delay: 1
+
+# Block specific bots if needed (uncomment to use)
+# User-agent: BadBot
+# Disallow: /
