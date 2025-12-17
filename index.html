@@ -1449,58 +1449,26 @@
             <h2 class="animate-on-scroll">Let's discuss your transformation</h2>
             <p class="subtitle animate-on-scroll">Whether you're navigating Electronic Patient Record selection, data platform integration, or AI strategy for clinical workflows</p>
 
-            <form class="contact-form animate-on-scroll" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
+            <div class="contact-box animate-on-scroll">
+                <div class="contact-item">
+                    <strong>Email</strong>
+                    <a href="mailto:bruno.nexusoperations@gmail.com?subject=Healthcare Digital Transformation Inquiry" aria-label="Send email to Nexus Health Operations">
+                        bruno.nexusoperations@gmail.com
+                    </a>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
+                <div class="contact-item">
+                    <p style="color: rgba(255,255,255,0.8); font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+                        Ready to discuss your EPR implementation, data platform integration, or AI strategy? Click the button below to send us an email with your project details.
+                    </p>
                 </div>
 
-                <div class="form-group">
-                    <label for="organization">Organization</label>
-                    <input type="text" id="organization" name="organization">
-                </div>
-
-                <div class="form-group">
-                    <label for="market">Primary Market *</label>
-                    <select id="market" name="market" required aria-required="true">
-                        <option value="">Select your market...</option>
-                        <option value="NHS UK">NHS (United Kingdom)</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="UAE">UAE</option>
-                        <option value="Qatar">Qatar</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="interest">Area of Interest *</label>
-                    <select id="interest" name="interest" required aria-required="true">
-                        <option value="">Select area of interest...</option>
-                        <option value="EPR Implementation">EPR Implementation (Epic/Oracle Health)</option>
-                        <option value="Data Platform">Data Platform Integration</option>
-                        <option value="AI Workflows">AI in Clinical Workflows</option>
-                        <option value="Fractional Leadership">Fractional CIO/CDO</option>
-                        <option value="Digital Transformation">Digital Transformation Strategy</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Tell us about your challenge *</label>
-                    <textarea id="message" name="message" required aria-required="true" placeholder="Describe your transformation challenge or project requirements..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 1.5rem; text-align: center;">
-                    Alternatively, email us directly at <a href="mailto:bruno.nexusoperations@gmail.com" style="color: var(--blue-bright);">bruno.nexusoperations@gmail.com</a>
-                </p>
-            </form>
+                <a href="mailto:bruno.nexusoperations@gmail.com?subject=Digital Transformation Inquiry&body=Hi Nexus Health Operations,%0D%0A%0D%0AName:%20%0D%0AOrganization:%20%0D%0AMarket:%20(NHS UK / Saudi Arabia / UAE / Qatar / Other)%0D%0AArea of Interest:%20(EPR Implementation / Data Platform / AI Workflows / Fractional Leadership / Digital Transformation / Other)%0D%0A%0D%0ATell us about your challenge:%0D%0A%0D%0A%0D%0A"
+                   class="submit-btn"
+                   style="display: inline-block; text-decoration: none; text-align: center; margin-top: 2rem;">
+                    Send Email
+                </a>
+            </div>
         </div>
     </section>
 
@@ -1637,15 +1605,7 @@
             }, 400);
         }
 
-        // Form submission handler (basic validation)
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // You can add custom validation here
-                // The form will submit to Formspree or your backend
-                console.log('Form submitted');
-            });
-        }
+        // Contact section uses mailto links - no form submission needed
     </script>
 </body>
 </html>
