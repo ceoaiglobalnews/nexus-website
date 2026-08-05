@@ -293,8 +293,54 @@
             color: var(--blue-bright);
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 2.5rem;
         }
-        
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .cta-btn.primary {
+            background: var(--gradient-tech);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--blue-bright);
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -306,6 +352,124 @@
             }
         }
         
+        /* About/Profile Section */
+        .about-section {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            position: relative;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 20px;
+            padding: 2px;
+            background: var(--gradient-tech);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-content h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            color: var(--white);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .about-content p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .about-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .about-btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+
+        .about-btn.primary {
+            background: var(--gradient-tech);
+            color: var(--white);
+            border: 2px solid transparent;
+        }
+
+        .about-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        .about-btn.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--blue-bright);
+        }
+
+        .about-btn.secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
         /* Mission statement with image */
         .mission {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
@@ -1141,10 +1305,15 @@
             .tech-grid-images {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .mission .container,
-            .stats-content {
+            .stats-content,
+            .about-container {
                 grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-width: 300px;
             }
         }
         
@@ -1218,6 +1387,7 @@
         <div class="container">
             <div class="logo">Nexus Health Operations</div>
             <div class="nav-links">
+                <a href="#about">About</a>
                 <a href="#expertise">Expertise</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact" class="contact-link">Get in touch</a>
@@ -1230,6 +1400,32 @@
             <h1>What's your next transformation breakthrough?</h1>
             <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
             <p class="markets">Serving NHS | Saudi Arabia | UAE | Qatar</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-btn primary">Start Your Transformation</a>
+                <a href="#about" class="cta-btn secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image-wrapper">
+                    <div class="about-image animate-on-scroll">
+                        <img src="BD4999A3-9334-4A97-AEE5-7D17FDA09A67.png" alt="Bruno Botelho - Healthcare Digital Transformation Advisor">
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2 class="animate-on-scroll">Bruno Botelho</h2>
+                    <h3 class="animate-on-scroll">Healthcare Digital Transformation Advisor</h3>
+                    <p class="animate-on-scroll">A strategic leader in digital healthcare, driving innovation and operational excellence in the National Health Service. Bruno has led major digital transformations, including EPR and Data Platform systems, enhancing efficiency and patient care.</p>
+                    <p class="animate-on-scroll">Passionate about sustainable, patient-focused solutions, he is committed to shaping the future of healthcare through proven methodologies and hands-on delivery expertise.</p>
+                    <div class="about-buttons animate-on-scroll">
+                        <a href="https://www.linkedin.com/in/brunombotelho/" class="about-btn secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
+                        <a href="#contact" class="about-btn primary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1397,7 +1593,7 @@
                     <span class="faq-icon">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>We can support delivery, not just advise. Where large and established consultancy groups create the roadmap, we implement it. Our team has held Programme Management Office and transformation budget holder roles—we've managed the complexity, not just written about it. Plus, you get partner-level expertise at boutique firm rates.</p>
+                    <p>We deliver, not just advise. Where McKinsey or Deloitte create the roadmap, we implement it. Our team has held Programme Management Office and transformation budget holder roles—we've managed the complexity, not just written about it. Plus, you get partner-level expertise at boutique firm rates.</p>
                 </div>
             </div>
 
@@ -1449,58 +1645,37 @@
             <h2 class="animate-on-scroll">Let's discuss your transformation</h2>
             <p class="subtitle animate-on-scroll">Whether you're navigating Electronic Patient Record selection, data platform integration, or AI strategy for clinical workflows</p>
 
-            <form class="contact-form animate-on-scroll" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required aria-required="true">
+            <div class="contact-form animate-on-scroll">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <p style="font-size: 1.3rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem;">Get in touch to discuss your healthcare transformation needs</p>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required aria-required="true">
+                    <label>Email</label>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(10, 22, 40, 0.6); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem;">✉️</span>
+                        <a href="mailto:bruno@nexushealthoperations.co.uk" style="color: var(--blue-bright); text-decoration: none; font-size: 1.1rem;">bruno@nexushealthoperations.co.uk</a>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="organization">Organization</label>
-                    <input type="text" id="organization" name="organization">
+                    <label>LinkedIn</label>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(10, 22, 40, 0.6); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem;">💼</span>
+                        <a href="https://www.linkedin.com/in/brunombotelho/" target="_blank" style="color: var(--blue-bright); text-decoration: none; font-size: 1.1rem;">linkedin.com/in/brunombotelho</a>
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="market">Primary Market *</label>
-                    <select id="market" name="market" required aria-required="true">
-                        <option value="">Select your market...</option>
-                        <option value="NHS UK">NHS (United Kingdom)</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="UAE">UAE</option>
-                        <option value="Qatar">Qatar</option>
-                        <option value="Other">Other</option>
-                    </select>
+                    <label>Website</label>
+                    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(10, 22, 40, 0.6); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px;">
+                        <span style="font-size: 1.2rem;">🌐</span>
+                        <span style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">nexushealthoperations.co.uk</span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="interest">Area of Interest *</label>
-                    <select id="interest" name="interest" required aria-required="true">
-                        <option value="">Select area of interest...</option>
-                        <option value="EPR Implementation">EPR Implementation (Epic/Oracle Health)</option>
-                        <option value="Data Platform">Data Platform Integration</option>
-                        <option value="AI Workflows">AI in Clinical Workflows</option>
-                        <option value="Fractional Leadership">Fractional CIO/CDO</option>
-                        <option value="Digital Transformation">Digital Transformation Strategy</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Tell us about your challenge *</label>
-                    <textarea id="message" name="message" required aria-required="true" placeholder="Describe your transformation challenge or project requirements..."></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Send Message</button>
-
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 1.5rem; text-align: center;">
-                    Alternatively, email us directly at <a href="mailto:bruno.nexusoperations@gmail.com" style="color: var(--blue-bright);">bruno.nexusoperations@gmail.com</a>
-                </p>
-            </form>
+                <a href="mailto:bruno@nexushealthoperations.co.uk?subject=Healthcare Digital Transformation Enquiry" class="submit-btn" style="display: block; text-align: center; text-decoration: none; margin-top: 2rem;">Send Email</a>
+            </div>
         </div>
     </section>
 
