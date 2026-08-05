@@ -293,8 +293,54 @@
             color: var(--blue-bright);
             text-transform: uppercase;
             letter-spacing: 2px;
+            margin-bottom: 2.5rem;
         }
-        
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .cta-btn.primary {
+            background: var(--gradient-tech);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--blue-bright);
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1354,6 +1400,10 @@
             <h1>What's your next transformation breakthrough?</h1>
             <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
             <p class="markets">Serving NHS | Saudi Arabia | UAE | Qatar</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-btn primary">Start Your Transformation</a>
+                <a href="#about" class="cta-btn secondary">Learn More</a>
+            </div>
         </div>
     </section>
 
@@ -1362,7 +1412,7 @@
             <div class="about-container">
                 <div class="about-image-wrapper">
                     <div class="about-image animate-on-scroll">
-                        <img src="images/bruno-profile.jpg" alt="Bruno Botelho - Healthcare Digital Transformation Advisor">
+                        <img src="BD4999A3-9334-4A97-AEE5-7D17FDA09A67.png" alt="Bruno Botelho - Healthcare Digital Transformation Advisor">
                     </div>
                 </div>
                 <div class="about-content">
@@ -1371,7 +1421,7 @@
                     <p class="animate-on-scroll">A strategic leader in digital healthcare, driving innovation and operational excellence in the National Health Service. Bruno has led major digital transformations, including EPR and Data Platform systems, enhancing efficiency and patient care.</p>
                     <p class="animate-on-scroll">Passionate about sustainable, patient-focused solutions, he is committed to shaping the future of healthcare through proven methodologies and hands-on delivery expertise.</p>
                     <div class="about-buttons animate-on-scroll">
-                        <a href="https://www.linkedin.com/in/your-profile" class="about-btn secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
+                        <a href="https://www.linkedin.com/in/brunombotelho/" class="about-btn secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
                         <a href="#contact" class="about-btn primary">Get in Touch</a>
                     </div>
                 </div>
