@@ -1079,6 +1079,148 @@
             transform: translateY(0);
         }
 
+        /* Insights Section */
+        .insights-section {
+            background: linear-gradient(135deg, #1a2942 0%, #0a1628 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .insights-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .insight-feature {
+            background: rgba(10, 22, 40, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-top: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .insight-badge {
+            display: inline-block;
+            background: var(--gradient-tech);
+            color: var(--white);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-content h3 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, var(--blue-bright) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .insight-intro {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .insight-quote {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 4px solid var(--blue-bright);
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-size: 1.15rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.95);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .insight-highlights {
+            margin: 2rem 0;
+        }
+
+        .insight-highlights h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--blue-bright);
+        }
+
+        .insight-highlights ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .insight-highlights li {
+            padding: 1rem 0 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .insight-highlights li:last-child {
+            border-bottom: none;
+        }
+
+        .insight-highlights li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--blue-bright);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .insight-highlights strong {
+            color: var(--blue-bright);
+        }
+
+        .insight-cta {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+            text-align: center;
+        }
+
+        .insight-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .insight-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-tech);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .insight-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+        }
+
         /* FAQ Section */
         .faq {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
@@ -1389,6 +1531,7 @@
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#expertise">Expertise</a>
+                <a href="#insights">Insights</a>
                 <a href="#faq">FAQ</a>
                 <a href="#contact" class="contact-link">Get in touch</a>
             </div>
@@ -1418,8 +1561,9 @@
                 <div class="about-content">
                     <h2 class="animate-on-scroll">Bruno Botelho</h2>
                     <h3 class="animate-on-scroll">Founder & CEO, Nexus Health Operations</h3>
-                    <p class="animate-on-scroll">A strategic leader in digital healthcare, driving innovation and operational excellence in the National Health Service. Bruno has led major digital transformations, including EPR and Data Platform systems, enhancing efficiency and patient care.</p>
-                    <p class="animate-on-scroll">Passionate about sustainable, patient-focused solutions, he is committed to shaping the future of healthcare through proven methodologies and hands-on delivery expertise.</p>
+                    <p class="animate-on-scroll">Former Director of Digital Operations and Innovation, Bruno bridges the critical gap between digital strategy and operational delivery—where most NHS transformations fail. He understands that the hardest part isn't buying technology; it's changing how work is done.</p>
+                    <p class="animate-on-scroll">With proven experience leading EPR implementations, Single Patient Record transformation, and AI-enabled clinical workflows across multiple NHS trusts and Integrated Care Systems, Bruno ensures technology is not just deployed—but adopted, embedded, and used to improve patient care.</p>
+                    <p class="animate-on-scroll">Advisor to NHS England Board on digital transformation strategy. Advocate for building Digital COO capability across the NHS.</p>
                     <div class="about-buttons animate-on-scroll">
                         <a href="https://www.linkedin.com/in/bruno-botelho-a895511a/" class="about-btn secondary" target="_blank" rel="noopener">LinkedIn Profile</a>
                         <a href="#contact" class="about-btn primary">Get in Touch</a>
@@ -1432,9 +1576,10 @@
     <section class="mission">
         <div class="container">
             <div class="mission-content">
-                <h2>The intersection of healthcare and technology innovation</h2>
-                <p>Nexus represents the connection point—where clinical expertise meets cutting-edge technology, where strategy transforms into delivery, where complex systems integrate seamlessly.</p>
-                <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
+                <h2>Bridging the Digital COO Gap</h2>
+                <p><strong>The hardest part of digital transformation isn't buying technology—it's changing how work is done.</strong></p>
+                <p>EPRs don't redesign pathways by themselves. Dashboards don't improve flow by themselves. AI doesn't enhance productivity by itself. Technology only creates value when people understand it, trust it, adopt it—and use it differently in the real world.</p>
+                <p>We bridge the critical gap between digital strategy and operational delivery. With proven experience leading transformations across NHS trusts and Integrated Care Systems, we ensure technology is not just implemented, but adopted, embedded, and used to improve patient care.</p>
             </div>
             <div class="mission-image">
                 <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare technology innovation">
@@ -1566,6 +1711,40 @@
                 <div class="diff-item">
                     <h3>Value-focused delivery</h3>
                     <p>Boutique firm flexibility and cost structure without compromising on quality, expertise, or delivery standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section" id="insights">
+        <div class="container">
+            <h2 class="animate-on-scroll">Thought Leadership</h2>
+            <p class="subtitle animate-on-scroll">Insights on the future of digital healthcare operations</p>
+
+            <div class="insight-feature">
+                <div class="insight-content">
+                    <span class="insight-badge">NHS England Board | June 2025</span>
+                    <h3>The NHS Needs Digital COOs</h3>
+                    <p class="insight-intro">A call to action for NHS leadership on bridging the gap between digital strategy and operational delivery.</p>
+
+                    <blockquote class="insight-quote">
+                        "The hardest part of digital transformation isn't buying technology—it's changing how work is done. This is fundamentally a people and leadership problem, and right now, no one owns it."
+                    </blockquote>
+
+                    <div class="insight-highlights">
+                        <h4>Key Points:</h4>
+                        <ul>
+                            <li><strong>The Leadership Gap:</strong> Technology boards focus on delivery. Operational boards focus on performance. But who owns adoption, embedding, and making technology actually improve patient care?</li>
+                            <li><strong>Single Patient Record Transformation:</strong> SPR could be one of the most patient-centred transformations in NHS history—but only with the right operational leadership to translate national ambition into everyday service change.</li>
+                            <li><strong>The Digital COO Role:</strong> Someone who is digitally literate, operationally credible, persuasive enough to bring teams together, and determined enough to see implementation through.</li>
+                            <li><strong>The Evidence:</strong> The Darzi review calls for a major tilt towards technology. The NAO warns that transformation is held back by skills, capability, and the difficulty of embedding new ways of working locally.</li>
+                        </ul>
+                    </div>
+
+                    <div class="insight-cta">
+                        <p><strong>Want to discuss how to bridge the Digital COO gap in your organization?</strong></p>
+                        <a href="#contact" class="insight-btn">Get in Touch</a>
+                    </div>
                 </div>
             </div>
         </div>
