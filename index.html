@@ -6,9 +6,6 @@
     <meta name="description" content="Nexus Health Operations - Healthcare Digital Transformation Advisory for NHS and Middle East Markets. EPR implementation, data platforms, and AI-enabled clinical workflows.">
     <meta name="keywords" content="healthcare digital transformation, NHS EPR implementation, healthcare data platform, clinical AI workflows, Epic implementation, Oracle Health, healthcare consulting">
     <meta name="author" content="Nexus Health Operations">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -71,23 +68,20 @@
             --blue-electric: #0099ff;
             --purple-neon: #a855f7;
             --teal-bright: #00ffcc;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             --gradient-tech: linear-gradient(135deg, #00d4ff 0%, #0099ff 50%, #a855f7 100%);
-            --gradient-glow: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(168, 85, 247, 0.3));
             --white: #ffffff;
-            --gray-light: #e2e8f0;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -95,21 +89,21 @@
             background: var(--navy-dark);
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 clamp(1.5rem, 5vw, 3.75rem);
         }
-        
-        /* Animated tech grid background */
+
+        /* Tech grid background */
         .tech-grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -117,13 +111,13 @@
             z-index: 0;
             animation: gridMove 20s linear infinite;
         }
-        
+
         @keyframes gridMove {
             0% { transform: translate(0, 0); }
             100% { transform: translate(50px, 50px); }
         }
-        
-        /* Navigation with glow */
+
+        /* Navigation */
         nav {
             background: rgba(10, 22, 40, 0.95);
             padding: 1.25rem 0;
@@ -134,16 +128,15 @@
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
         }
-        
+
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 2rem;
-            position: relative;
-            z-index: 1;
+            flex-wrap: wrap;
         }
-        
+
         nav .logo {
             color: var(--white);
             font-size: clamp(1.1rem, 2vw, 1.4rem);
@@ -154,20 +147,8 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            position: relative;
         }
-        
-        nav .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--gradient-tech);
-            box-shadow: 0 0 10px var(--blue-bright);
-        }
-        
+
         nav .nav-links {
             display: flex;
             gap: 2rem;
@@ -184,164 +165,179 @@
             position: relative;
         }
 
-        nav .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--blue-bright);
-            transition: width 0.3s ease;
-        }
-
         nav .nav-links a:hover {
             color: var(--blue-bright);
         }
 
-        nav .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        nav .contact-link {
+        nav .contact-btn {
             color: var(--white);
-            text-decoration: none;
-            font-size: 0.95rem;
             padding: 0.75rem 2rem;
-            border: 2px solid transparent;
             border-radius: 50px;
             background: var(--gradient-tech);
-            background-clip: padding-box;
-            position: relative;
             font-weight: 600;
             transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        
-        nav .contact-link::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50px;
-            padding: 2px;
-            background: var(--gradient-tech);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-        }
-        
-        nav .contact-link:hover {
+
+        nav .contact-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
-        
-        /* Hero with futuristic overlay */
+
+        /* Hero */
         .hero {
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9), rgba(26, 41, 66, 0.85)), 
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.9), rgba(26, 41, 66, 0.85)),
                         url('https://images.unsplash.com/photo-1707756965230-5babf1f3ed7d?w=1920&q=80') center/cover;
             color: var(--white);
             padding: clamp(6rem, 15vh, 10rem) 0 clamp(5rem, 12vh, 8rem);
             position: relative;
-            overflow: hidden;
         }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(0, 212, 255, 0.15), transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.15), transparent 50%);
-            pointer-events: none;
-        }
-        
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-        
+
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 5rem);
             line-height: 1.1;
             margin-bottom: 2rem;
             font-weight: 800;
-            max-width: 1000px;
             background: linear-gradient(135deg, #ffffff 0%, var(--blue-bright) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: fadeInUp 0.8s ease-out;
-            text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
         }
-        
+
         .hero .subtitle {
             font-size: clamp(1.2rem, 2.5vw, 1.6rem);
             max-width: 850px;
             margin-bottom: 2.5rem;
             font-weight: 300;
             line-height: 1.8;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.2s forwards;
             color: rgba(255, 255, 255, 0.95);
         }
-        
+
         .hero .markets {
             font-size: 1.2rem;
             font-weight: 500;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out 0.4s forwards;
             color: var(--blue-bright);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
         }
-        
-        /* Mission statement with image */
+
+        .about h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--blue-bright);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            color: var(--blue-bright);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: rgba(255,255,255,0.9);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-buttons {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .about-buttons a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-btn {
+            background: #0077b5;
+            box-shadow: 0 4px 12px rgba(0,119,181,0.3);
+        }
+
+        .linkedin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,119,181,0.5);
+        }
+
+        .cta-btn {
+            background: var(--gradient-tech);
+            box-shadow: 0 4px 12px rgba(0,212,255,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,212,255,0.5);
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 20px;
+            padding: 2px;
+            background: var(--gradient-tech);
+            z-index: -1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Mission */
         .mission {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             padding: clamp(5rem, 12vh, 8rem) 0;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .mission::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.1); opacity: 0.5; }
-        }
-        
-        .mission .container {
+
+        .mission-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            position: relative;
-            z-index: 1;
         }
-        
+
         .mission-content h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 2rem;
@@ -351,49 +347,33 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .mission-content p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.8;
             margin-bottom: 1.5rem;
         }
-        
+
         .mission-image {
-            position: relative;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
         }
-        
-        .mission-image::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-glow);
-            opacity: 0.3;
-            z-index: 1;
-        }
-        
+
         .mission-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.5s ease;
         }
-        
-        .mission-image:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Technology showcase with multiple images */
+
+        /* Tech Showcase */
         .tech-showcase {
             background: #ffffff;
             padding: clamp(5rem, 12vh, 8rem) 0;
-            position: relative;
         }
-        
+
         .tech-showcase h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
@@ -404,63 +384,45 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .tech-showcase .subtitle {
             text-align: center;
             font-size: 1.3rem;
             color: #4a5568;
             margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
-        
+
         .tech-grid-images {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
-            margin-bottom: 4rem;
         }
-        
+
         .tech-image-card {
-            position: relative;
             border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 4/3;
             cursor: pointer;
             transition: all 0.4s ease;
+            position: relative;
         }
-        
-        .tech-image-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-tech);
-            opacity: 0;
-            z-index: 1;
-            transition: opacity 0.4s ease;
-        }
-        
+
         .tech-image-card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 20px 60px rgba(0, 153, 255, 0.3);
         }
-        
-        .tech-image-card:hover::before {
-            opacity: 0.3;
-        }
-        
+
         .tech-image-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
-        
+
         .tech-image-card:hover img {
             transform: scale(1.1);
         }
-        
+
         .tech-image-overlay {
             position: absolute;
             bottom: 0;
@@ -472,29 +434,28 @@
             transform: translateY(100%);
             transition: transform 0.4s ease;
         }
-        
+
         .tech-image-card:hover .tech-image-overlay {
             transform: translateY(0);
         }
-        
+
         .tech-image-overlay h3 {
             color: var(--white);
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .tech-image-overlay p {
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.95rem;
         }
-        
-        /* Expertise with gradient cards */
+
+        /* Expertise */
         .expertise {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             padding: clamp(5rem, 12vh, 8rem) 0;
-            position: relative;
         }
-        
+
         .expertise h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 4rem;
@@ -505,109 +466,67 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .expertise-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
             gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
         }
-        
+
         .expertise-card {
             background: rgba(26, 41, 66, 0.6);
             backdrop-filter: blur(10px);
             padding: 3rem 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(0, 212, 255, 0.2);
-            position: relative;
-            overflow: hidden;
             transition: all 0.4s ease;
         }
-        
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-tech);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        
-        .expertise-card::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1), transparent 70%);
-            transform: translate(-50%, -50%) scale(0);
-            transition: transform 0.6s ease;
-        }
-        
+
         .expertise-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
             border-color: var(--blue-bright);
         }
-        
-        .expertise-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .expertise-card:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-        }
-        
+
         .expertise-card h3 {
             font-size: 1.6rem;
             margin-bottom: 1.2rem;
             color: var(--white);
             font-weight: 600;
-            position: relative;
-            z-index: 1;
         }
-        
+
         .expertise-card p {
             font-size: 1.1rem;
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.85);
-            position: relative;
-            z-index: 1;
         }
-        
-        /* Stats section with images */
-        .stats-section {
+
+        /* Stats */
+        .stats {
             background: #ffffff;
             padding: clamp(5rem, 12vh, 8rem) 0;
-            position: relative;
         }
-        
+
         .stats-content {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             gap: 4rem;
             align-items: center;
         }
-        
+
         .stats-image {
-            position: relative;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
-        
+
         .stats-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block;
         }
-        
+
         .stats-text h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 2rem;
@@ -617,21 +536,28 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
+        .stats-text p {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
-        
+
         .stat-item {
             background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1));
             padding: 2rem;
             border-radius: 16px;
             border: 1px solid rgba(0, 153, 255, 0.2);
         }
-        
+
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
@@ -641,22 +567,21 @@
             background-clip: text;
             margin-bottom: 0.5rem;
         }
-        
+
         .stat-label {
             font-size: 1.1rem;
             color: #4a5568;
             font-weight: 500;
         }
-        
+
         /* Differentiation */
         .differentiation {
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(26, 41, 66, 0.95)), 
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.95), rgba(26, 41, 66, 0.95)),
                         url('https://images.unsplash.com/photo-1504813184591-01572f98c85f?w=1600&q=80') center/cover fixed;
             padding: clamp(5rem, 12vh, 8rem) 0;
             color: var(--white);
-            position: relative;
         }
-        
+
         .differentiation h2 {
             font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 1.5rem;
@@ -664,7 +589,7 @@
             text-align: center;
             color: var(--white);
         }
-        
+
         .differentiation .intro-text {
             font-size: 1.4rem;
             max-width: 900px;
@@ -673,7 +598,7 @@
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .diff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
@@ -681,7 +606,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .diff-item {
             background: rgba(26, 41, 66, 0.6);
             backdrop-filter: blur(10px);
@@ -690,235 +615,27 @@
             border: 1px solid rgba(0, 212, 255, 0.3);
             transition: all 0.4s ease;
         }
-        
+
         .diff-item:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 60px rgba(0, 212, 255, 0.4);
             border-color: var(--blue-bright);
         }
-        
+
         .diff-item h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             font-weight: 600;
             color: var(--blue-bright);
         }
-        
+
         .diff-item p {
             font-size: 1.15rem;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.9);
         }
-        
-        /* Contact with futuristic card */
-        .contact {
-            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
-            padding: clamp(5rem, 12vh, 8rem) 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .contact h2 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            background: var(--gradient-tech);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .contact .subtitle {
-            font-size: 1.4rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 4rem;
-        }
-        
-        .contact-box {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 3.5rem;
-            background: rgba(26, 41, 66, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-            position: relative;
-        }
-        
-        .contact-box::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            border-radius: 24px;
-            padding: 2px;
-            background: var(--gradient-tech);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        
-        .contact-box:hover::before {
-            opacity: 1;
-        }
-        
-        .contact-item {
-            margin: 2.5rem 0;
-            font-size: 1.2rem;
-        }
-        
-        .contact-item strong {
-            display: block;
-            margin-bottom: 0.75rem;
-            color: var(--blue-bright);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 700;
-        }
-        
-        .contact-item a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-tech);
-            box-shadow: 0 0 10px var(--blue-bright);
-            transition: width 0.3s ease;
-        }
-        
-        .contact-item a:hover {
-            color: var(--blue-bright);
-            transform: translateX(4px);
-        }
-        
-        .contact-item a:hover::after {
-            width: 100%;
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(10, 22, 40, 0.98);
-            color: var(--white);
-            padding: 2.5rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-        }
-        
-        footer p {
-            opacity: 0.6;
-            font-size: 0.95rem;
-        }
 
-        /* Skip to content link for accessibility */
-        .skip-to-content {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--blue-bright);
-            color: var(--navy-dark);
-            padding: 8px 16px;
-            text-decoration: none;
-            font-weight: 600;
-            z-index: 10000;
-            border-radius: 0 0 8px 0;
-        }
-
-        .skip-to-content:focus {
-            top: 0;
-        }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(26, 41, 66, 0.6);
-            backdrop-filter: blur(20px);
-            padding: 3rem;
-            border-radius: 24px;
-            border: 2px solid rgba(0, 212, 255, 0.3);
-            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--blue-bright);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(10, 22, 40, 0.6);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            border-radius: 8px;
-            color: var(--white);
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--blue-bright);
-            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem 2rem;
-            background: var(--gradient-tech);
-            border: none;
-            border-radius: 50px;
-            color: var(--white);
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        /* FAQ Section */
+        /* FAQ */
         .faq {
             background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
             padding: clamp(5rem, 12vh, 8rem) 0;
@@ -941,9 +658,6 @@
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 4rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .faq-container {
@@ -1008,42 +722,117 @@
             font-size: 1.05rem;
         }
 
-        /* Floating CTA Button */
-        .floating-cta {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 999;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 0.4s ease;
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #0a1628 0%, #1a2942 100%);
+            padding: clamp(5rem, 12vh, 8rem) 0;
+            text-align: center;
         }
 
-        .floating-cta.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .floating-cta a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
+        .contact h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
             background: var(--gradient-tech);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 50px;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 4rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(26, 41, 66, 0.6);
+            backdrop-filter: blur(20px);
+            padding: 3rem;
+            border-radius: 24px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--blue-bright);
+            font-size: 0.9rem;
             font-weight: 600;
-            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(10, 22, 40, 0.6);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
             transition: all 0.3s ease;
         }
 
-        .floating-cta a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.6);
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--blue-bright);
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
         }
 
-        /* Cookie Consent Banner */
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient-tech);
+            border: none;
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 22, 40, 0.98);
+            color: var(--white);
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            opacity: 0.6;
+            font-size: 0.95rem;
+        }
+
+        /* Cookie Banner */
         .cookie-banner {
             position: fixed;
             bottom: 0;
@@ -1055,20 +844,13 @@
             border-top: 1px solid rgba(0, 212, 255, 0.3);
             z-index: 1000;
             transform: translateY(100%);
-            transition: transform 0.4s ease, opacity 0.4s ease;
-            opacity: 0;
+            transition: transform 0.4s ease;
             display: none;
         }
 
         .cookie-banner.show {
             transform: translateY(0);
-            opacity: 1;
             display: block;
-        }
-
-        .cookie-banner.hide {
-            transform: translateY(100%);
-            opacity: 0;
         }
 
         .cookie-content {
@@ -1086,11 +868,6 @@
             font-size: 0.95rem;
             flex: 1;
             min-width: 300px;
-        }
-
-        .cookie-text a {
-            color: var(--blue-bright);
-            text-decoration: underline;
         }
 
         .cookie-buttons {
@@ -1127,30 +904,19 @@
             border-color: var(--white);
         }
 
-        /* Scroll animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
             .tech-grid-images {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
-            .mission .container,
-            .stats-content {
+
+            .mission-content,
+            .stats-content,
+            .about-content {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         @media (max-width: 768px) {
             nav .container {
                 flex-direction: column;
@@ -1176,10 +942,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .mission .container {
-                gap: 2rem;
-            }
-
             .cookie-content {
                 flex-direction: column;
                 text-align: center;
@@ -1190,61 +952,74 @@
                 justify-content: center;
             }
 
-            .floating-cta {
-                bottom: 1rem;
-                right: 1rem;
-            }
-
-            .floating-cta a {
-                padding: 0.875rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
             .contact-form {
                 padding: 2rem;
-            }
-        }
-        
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <a href="#main-content" class="skip-to-content">Skip to main content</a>
     <div class="tech-grid"></div>
 
-    <nav id="nav" role="navigation" aria-label="Main navigation">
+    <nav>
         <div class="container">
             <div class="logo">Nexus Health Operations</div>
             <div class="nav-links">
+                <a href="#about">About</a>
                 <a href="#expertise">Expertise</a>
                 <a href="#faq">FAQ</a>
-                <a href="#contact" class="contact-link">Get in touch</a>
+                <a href="#contact" class="contact-btn">Get in touch</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="main-content">
+    <section class="hero">
         <div class="container">
             <h1>What's your next transformation breakthrough?</h1>
-            <p class="subtitle">Operational excellence in healthcare digital transformation. Proven NHS expertise in EPR implementations, data platforms, and AI-enabled clinical workflows.</p>
+            <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
             <p class="markets">Serving NHS | Saudi Arabia | UAE | Qatar</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <h2>Who You're Working With</h2>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Bruno Botelho</h3>
+                    <h4>Healthcare Digital Transformation Advisor</h4>
+                    <p>A strategic leader in digital healthcare, driving innovation and operational excellence in the National Health Service. Bruno has led major digital transformations, including EPR and Data Platform systems, enhancing efficiency and patient care.</p>
+                    <p>Passionate about sustainable, patient-focused solutions, he is committed to shaping the future of healthcare through proven methodologies and hands-on delivery expertise.</p>
+
+                    <div class="about-buttons">
+                        <a href="https://www.linkedin.com/in/bruno-botelho-a895511a/" target="_blank" rel="noopener" class="linkedin-btn">
+                            <span>LinkedIn Profile</span>
+                        </a>
+                        <a href="#contact" class="cta-btn">
+                            <span>Get in Touch</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="about-image">
+                    <img src="BD4999A3-9334-4A97-AEE5-7D17FDA09A67.png" alt="Bruno Botelho - Healthcare Digital Transformation Advisor">
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="mission">
         <div class="container">
             <div class="mission-content">
-                <h2>Healthcare transformation that delivers</h2>
-                <p>We connect clinical expertise with cutting-edge technology. Strategy becomes delivery. Complex systems integrate seamlessly.</p>
-                <p>Led digital transformations across NHS trusts and Integrated Care Systems. Programme Management Office leadership with real budget accountability.</p>
-            </div>
-            <div class="mission-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare technology innovation">
+                <div>
+                    <h2>The intersection of healthcare and technology innovation</h2>
+                    <p>Nexus represents the connection point—where clinical expertise meets cutting-edge technology, where strategy transforms into delivery, where complex systems integrate seamlessly.</p>
+                    <p>We've led digital transformations at scale across multiple NHS trusts and Integrated Care Systems. Our team brings proven operational experience from Programme Management Office leadership and transformation budget holder roles.</p>
+                </div>
+                <div class="mission-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Healthcare technology innovation">
+                </div>
             </div>
         </div>
     </section>
@@ -1253,7 +1028,7 @@
         <div class="container">
             <h2>Powering healthcare transformation</h2>
             <p class="subtitle">From Electronic Patient Records to AI-enabled workflows, we connect the dots that make digital healthcare work</p>
-            
+
             <div class="tech-grid-images">
                 <div class="tech-image-card">
                     <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600&q=80" alt="UK NHS junior doctor">
@@ -1280,37 +1055,37 @@
         </div>
     </section>
 
-<section class="stats-section">
-    <div class="container">
-        <div class="stats-content">
-            <div class="stats-image">
-                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Digital healthcare technology">
-            </div>
-            <div class="stats-text">
-                <h2>The digital transformation opportunity</h2>
-                <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 2rem; line-height: 1.8;">NHS Medium Term Planning Framework (2026-2029) mandates unprecedented transformation. Every trust faces strict deadlines for technology adoption and digital-first delivery.</p>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Digital-First Service Mandate</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">£35B</div>
-                        <div class="stat-label">Productivity Opportunities To Be Unlocked</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">£500M</div>
-                        <div class="stat-label">Saving on staff absence under Health and Wellbeing</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">96%</div>
-                        <div class="stat-label">Electronic Patient Records Adoption Target by 2029</div>
+    <section class="stats">
+        <div class="container">
+            <div class="stats-content">
+                <div class="stats-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="Digital healthcare technology">
+                </div>
+                <div class="stats-text">
+                    <h2>The scale of healthcare digital transformation opportunity</h2>
+                    <p>As an example, the NHS Medium Term Planning Framework (2026-2029) mandates unprecedented digital transformation. Every trust faces strict deadlines for technology adoption, productivity gains, and digital-first service delivery.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Digital-First Service Mandate</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">£35B</div>
+                            <div class="stat-label">Productivity Opportunities To Be Unlocked</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">£500M</div>
+                            <div class="stat-label">Saving on staff absence under Health and Wellbeing</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">96%</div>
+                            <div class="stat-label">Electronic Patient Records Adoption Target by 2029</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <section class="expertise" id="expertise">
         <div class="container">
@@ -1320,27 +1095,27 @@
                     <h3>Electronic Patient Record Strategy</h3>
                     <p>System selection, implementation readiness, clinical safety planning, and post-implementation optimisation across Epic and Oracle Health platforms.</p>
                 </div>
-                
+
                 <div class="expertise-card">
                     <h3>Data Platform Integration</h3>
                     <p>Federated Data Platform deployment, Health Information Exchange design, Fast Healthcare Interoperability Resources implementation, and data migration strategies.</p>
                 </div>
-                
+
                 <div class="expertise-card">
                     <h3>AI in Clinical Workflows</h3>
                     <p>Ambient voice technology integration, clinical decision support design, predictive patient risk stratification, and AI governance frameworks.</p>
                 </div>
-                
+
                 <div class="expertise-card">
                     <h3>Digital Transformation Delivery</h3>
                     <p>Programme management, digital maturity assessments, business case development, and change management for complex healthcare transformations.</p>
                 </div>
-                
+
                 <div class="expertise-card">
                     <h3>Interoperability Strategy</h3>
                     <p>Addressing the 73 documented barriers to healthcare interoperability through specialised technical expertise and operational delivery.</p>
                 </div>
-                
+
                 <div class="expertise-card">
                     <h3>Fractional Leadership</h3>
                     <p>Interim Chief Information Officer and Chief Digital Officer services during recruitment, transformation phases, or capacity constraints.</p>
@@ -1349,221 +1124,161 @@
         </div>
     </section>
 
-    <!-- About the Founder Section -->
-    <section class="mission" style="background: linear-gradient(135deg, #0f1729 0%, #1a2942 100%); padding: 5rem 0;">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3rem; color: #00d4ff; font-size: 2.5rem;">Who You're Working With</h2>
-
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; max-width: 1200px; margin: 0 auto;">
-                <div>
-                    <h3 style="color: #00d4ff; font-size: 2rem; margin-bottom: 1rem;">Bruno Botelho</h3>
-                    <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #ffffff;"><strong>Healthcare Digital Transformation Advisor</strong></p>
-                    <p style="line-height: 1.8; color: rgba(255,255,255,0.9); font-size: 1.05rem;">A strategic leader in digital healthcare, driving innovation and operational excellence in the National Health Service. Bruno has led major digital transformations, including EPR and Data Platform systems, enhancing efficiency and patient care. Passionate about sustainable, patient-focused solutions, he is committed to shaping the future of healthcare.</p>
-
-                    <div style="margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="https://www.linkedin.com/in/bruno-botelho-a895511a/" target="_blank" rel="noopener"
-                           style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: #0077b5; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,119,181,0.3);">
-                            <span>LinkedIn Profile</span>
-                        </a>
-                        <a href="#contact"
-                           style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #00d4ff, #a855f7); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,212,255,0.3);">
-                            <span>Get in Touch</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3); background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(168, 85, 247, 0.2)); min-height: 500px; display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center; padding: 3rem;">
-                        <div style="font-size: 4rem; margin-bottom: 1rem;">👤</div>
-                        <p style="color: #00d4ff; font-size: 1.1rem; font-weight: 600;">Replace with your<br/>professional photo</p>
-                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 0.5rem;">Recommended: 400x500px<br/>Professional headshot</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="differentiation">
         <div class="container">
             <h2>Why organisations choose us</h2>
-            <p class="intro-text">We deliver transformation, not slide decks. Where strategy firms design roadmaps, we implement them. Partner-level expertise with hands-on operational delivery.</p>
-            
+            <p class="intro-text">We complement rather than compete with strategy firms. When McKinsey designs the transformation roadmap, we deliver it. When trusts need hands-on operational support, not another slide deck, we show up Monday morning ready to work.</p>
+
             <div class="diff-grid">
                 <div class="diff-item">
                     <h3>Operational credibility</h3>
-                    <p>PMO leadership with real budget accountability. Managed the complexity, not just advised on it.</p>
+                    <p>Programme Management Office and transformation budget holder experience across acute trusts and Integrated Care Systems—we've managed the complexity, not just advised on it.</p>
                 </div>
 
                 <div class="diff-item">
                     <h3>Clinical engagement</h3>
-                    <p>Built relationships with clinical teams. Understand workflow realities, not theoretical frameworks.</p>
+                    <p>Built relationships with clinical teams and operational staff. We understand workflow realities, not just theoretical frameworks.</p>
                 </div>
 
                 <div class="diff-item">
                     <h3>Speed and agility</h3>
-                    <p>Direct partner access. Experienced practitioners, not graduates learning on your budget.</p>
+                    <p>Rapid mobilisation with direct partner access. We deploy experienced practitioners, not graduate-staffed teams learning on the job.</p>
                 </div>
 
                 <div class="diff-item">
                     <h3>Value-focused delivery</h3>
-                    <p>Boutique cost structure. Big-firm expertise and delivery standards.</p>
+                    <p>Boutique firm flexibility and cost structure without compromising on quality, expertise, or delivery standards.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proven Results / Case Study Section -->
-    <section class="stats-section">
+    <section class="faq" id="faq">
         <div class="container">
-            <h2 style="text-align: center; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 1rem; font-weight: 700; background: var(--gradient-tech); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Proven Results</h2>
-            <p style="text-align: center; font-size: 1.2rem; color: #4a5568; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">Real transformation outcomes from recent engagements</p>
+            <h2>Frequently asked questions</h2>
+            <p class="subtitle">Clear answers to help you make informed decisions</p>
 
-            <div class="diff-grid" style="max-width: 1200px; margin: 0 auto;">
-                <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1)); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(0, 153, 255, 0.2);">
-                    <div style="color: var(--blue-bright); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">EPR Implementation</div>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #1a1a1a;">Major Teaching Hospital Epic Go-Live</h3>
-                    <p style="color: #4a5568; margin-bottom: 1.5rem;">Challenge: 1,500-bed acute trust needed Epic implementation within 10-month timeframe</p>
-                    <p style="color: #4a5568; margin-bottom: 1.5rem;"><strong>Approach:</strong> Led Programme Management Office setup, clinical engagement strategy, and go-live readiness across 12 clinical divisions</p>
-                    <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--blue-bright);">
-                        <p style="margin: 0; color: #1a1a1a;"><strong>Results:</strong></p>
-                        <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: #4a5568;">
-                            <li>Delivered on time, within budget</li>
-                            <li>94% clinician adoption rate in first month</li>
-                            <li>Zero critical incidents in first 30 days post-go-live</li>
-                        </ul>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can you mobilise for a project?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We can typically mobilise within 2-3 weeks from engagement. As a boutique firm with direct partner involvement, we don't need extensive team assembly or knowledge transfer periods. You work with experienced practitioners from day one.</p>
                     </div>
                 </div>
 
-                <div style="background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(168, 85, 247, 0.1)); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(0, 153, 255, 0.2);">
-                    <div style="color: var(--blue-bright); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Data Platform Integration</div>
-                    <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: #1a1a1a;">Integrated Care System FHIR Implementation</h3>
-                    <p style="color: #4a5568; margin-bottom: 1.5rem;">Challenge: Connect 6 NHS trusts with federated data platform for population health management</p>
-                    <p style="color: #4a5568; margin-bottom: 1.5rem;"><strong>Approach:</strong> Designed Health Information Exchange architecture, FHIR API strategy, and data governance framework</p>
-                    <div style="background: white; padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--blue-bright);">
-                        <p style="margin: 0; color: #1a1a1a;"><strong>Results:</strong></p>
-                        <ul style="margin: 0.5rem 0 0 0; padding-left: 1.5rem; color: #4a5568;">
-                            <li>2.1 million patient records integrated across 6 trusts</li>
-                            <li>Real-time interoperability achieved in 8 months</li>
-                            <li>£3.2M annual savings from reduced duplicate testing</li>
-                        </ul>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What makes you different from larger strategy firms?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We deliver, not just advise. Where McKinsey or Deloitte create the roadmap, we implement it. Our team has held Programme Management Office and transformation budget holder roles—we've managed the complexity, not just written about it. Plus, you get partner-level expertise at boutique firm rates.</p>
                     </div>
                 </div>
-            </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <p style="font-size: 0.95rem; color: #718096; font-style: italic;">Client names anonymized for confidentiality. References available upon request.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work across both NHS and Middle East markets?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Our core experience comes from NHS digital transformation, which we translate effectively to Saudi Arabia, UAE, and Qatar markets. Healthcare challenges around EPR implementation, data integration, and clinical workflow optimization are universal—our proven NHS methodologies adapt well to Middle East contexts.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you support specific EPR platforms like Epic or Oracle Health?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We have hands-on experience with both Epic and Oracle Health implementations, including system selection, implementation readiness assessments, clinical safety planning, and post-go-live optimization. We understand the technical architecture, workflow configuration, and change management requirements for both platforms.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's your typical engagement model?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer flexible engagement models: project-based advisory (3-6 months), fractional leadership (CIO/CDO roles during recruitment or transformation phases), and retained consulting for ongoing strategic support. Pricing is tailored to scope and duration, with transparent day rates and no hidden fees.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do you approach data platform and interoperability challenges?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We address the 73 documented barriers to healthcare interoperability through practical, proven strategies: Federated Data Platform deployment, FHIR implementation, Health Information Exchange design, and data migration planning. Our approach balances technical excellence with operational reality—solutions that actually work in complex healthcare environments.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-
-<section class="faq" id="faq">
-    <div class="container">
-        <h2 class="animate-on-scroll">Frequently asked questions</h2>
-        <p class="subtitle animate-on-scroll">Clear answers to help you make informed decisions</p>
-
-        <div class="faq-container">
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>How quickly can you mobilise for a project?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We can typically mobilise within 2-3 weeks from engagement. As a boutique firm with direct partner involvement, we don't need extensive team assembly or knowledge transfer periods. You work with experienced practitioners from day one.</p>
-                </div>
-            </div>
-
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>What makes you different from larger strategy firms?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We deliver, not just advise. Where McKinsey or Deloitte create the roadmap, we implement it. Our team has held Programme Management Office and transformation budget holder roles—we've managed the complexity, not just written about it. Plus, you get partner-level expertise at boutique firm rates.</p>
-                </div>
-            </div>
-
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>Do you work across both NHS and Middle East markets?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes. Our core experience comes from NHS digital transformation, which we translate effectively to Saudi Arabia, UAE, and Qatar markets. Healthcare challenges around EPR implementation, data integration, and clinical workflow optimization are universal—our proven NHS methodologies adapt well to Middle East contexts.</p>
-                </div>
-            </div>
-
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>Can you support specific EPR platforms like Epic or Oracle Health?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely. We have hands-on experience with both Epic and Oracle Health implementations, including system selection, implementation readiness assessments, clinical safety planning, and post-go-live optimization. We understand the technical architecture, workflow configuration, and change management requirements for both platforms.</p>
-                </div>
-            </div>
-
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>What's your typical engagement model?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We offer flexible engagement models: project-based advisory (3-6 months), fractional leadership (CIO/CDO roles during recruitment or transformation phases), and retained consulting for ongoing strategic support. Pricing is tailored to scope and duration, with transparent day rates and no hidden fees.</p>
-                </div>
-            </div>
-
-            <div class="faq-item animate-on-scroll">
-                <div class="faq-question">
-                    <span>How do you approach data platform and interoperability challenges?</span>
-                    <span class="faq-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We address the 73 documented barriers to healthcare interoperability through practical, proven strategies: Federated Data Platform deployment, FHIR implementation, Health Information Exchange design, and data migration planning. Our approach balances technical excellence with operational reality—solutions that actually work in complex healthcare environments.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="animate-on-scroll">Let's discuss your transformation</h2>
-            <p class="subtitle animate-on-scroll">Whether you're navigating Electronic Patient Record selection, data platform integration, or AI strategy for clinical workflows</p>
+            <h2>Let's discuss your transformation</h2>
+            <p class="subtitle">Whether you're navigating Electronic Patient Record selection, data platform integration, or AI strategy for clinical workflows</p>
 
-            <div class="contact-box animate-on-scroll">
-                <!-- Booking Calendar Integration -->
-                <div class="contact-item" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem;">
-                    <strong style="color: #00d4ff; font-size: 1.2rem;">Book a 30-Minute Discovery Call</strong>
-                    <p style="color: rgba(255,255,255,0.8); margin: 1rem 0 1.5rem 0; font-size: 1rem;">
-                        Schedule a free consultation to discuss your digital transformation needs
-                    </p>
-                    <a href="https://outlook.office.com/bookwithme/user/f7ba7b9ea5394190a9a69729a3c7902f%40nhs.net/meetingtype/uhNgCDT7Z0yfEM3GLgx_eg2?anonymous&ismsaljsauthenabled"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="cta-button"
-                       style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, #00d4ff, #a855f7); border-radius: 50px; text-decoration: none; color: white; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);">
-                        Schedule Discovery Call →
-                    </a>
-                    <p style="color: rgba(255,255,255,0.6); margin-top: 1rem; font-size: 0.9rem; font-style: italic;">
-                        No commitment required • Instant confirmation
-                    </p>
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
                 </div>
 
-                <div class="contact-item">
-                    <strong>Or Email Directly</strong>
-                    <a href="mailto:bruno@nexushealthoperations.co.uk?subject=Digital Transformation Inquiry"
-                       aria-label="Send email to Nexus Health Operations"
-                       style="font-size: 1.3rem; display: block; margin-top: 1rem; font-weight: 500;">
-                        bruno@nexushealthoperations.co.uk
-                    </a>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
 
-                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 12px; border-left: 3px solid #00d4ff;">
-                    <p style="color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.7; margin: 0;">
-                        <strong style="color: #00d4ff;">Get in touch:</strong> Discuss your Digital Strategy including your EPR, Data Platform Integration, or AI Strategy for clinical workflows. We respond in 48 hours.
-                    </p>
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization">
                 </div>
-            </div>
+
+                <div class="form-group">
+                    <label for="market">Primary Market *</label>
+                    <select id="market" name="market" required>
+                        <option value="">Select your market...</option>
+                        <option value="NHS UK">NHS (United Kingdom)</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="UAE">UAE</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="interest">Area of Interest *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Select area of interest...</option>
+                        <option value="EPR Implementation">EPR Implementation (Epic/Oracle Health)</option>
+                        <option value="Data Platform">Data Platform Integration</option>
+                        <option value="AI Workflows">AI in Clinical Workflows</option>
+                        <option value="Fractional Leadership">Fractional CIO/CDO</option>
+                        <option value="Digital Transformation">Digital Transformation Strategy</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your challenge *</label>
+                    <textarea id="message" name="message" required placeholder="Describe your transformation challenge or project requirements..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-top: 1.5rem;">
+                    Alternatively, email us directly at <a href="mailto:bruno@nexushealthoperations.co.uk" style="color: var(--blue-bright);">bruno@nexushealthoperations.co.uk</a>
+                </p>
+            </form>
         </div>
     </section>
 
@@ -1572,21 +1287,11 @@
             <p>&copy; 2025 Nexus Health Operations. All rights reserved.</p>
         </div>
     </footer>
-    <!-- Deployed: 2025-01-17 -->
 
-    <!-- Floating CTA Button -->
-    <div class="floating-cta" id="floatingCta">
-        <a href="#contact" aria-label="Get in touch with Nexus Health Operations">
-            <span>Get Started</span>
-            <span>→</span>
-        </a>
-    </div>
-
-    <!-- Cookie Consent Banner -->
     <div class="cookie-banner" id="cookieBanner">
         <div class="cookie-content">
             <div class="cookie-text">
-                We use essential cookies to ensure our website functions properly. By continuing to use this site, you accept our use of cookies. <a href="#" onclick="event.preventDefault()">Learn more</a>
+                We use essential cookies to ensure our website functions properly. By continuing to use this site, you accept our use of cookies.
             </div>
             <div class="cookie-buttons">
                 <button class="cookie-btn accept" onclick="acceptCookies()">Accept</button>
@@ -1596,32 +1301,6 @@
     </div>
 
     <script>
-        // Scroll animations
-        function checkScroll() {
-            const elements = document.querySelectorAll('.animate-on-scroll');
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementBottom = element.getBoundingClientRect().bottom;
-                const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
-
-                if (isVisible && !element.classList.contains('animated')) {
-                    element.classList.add('animated');
-                }
-            });
-        }
-
-        // Floating CTA visibility
-        function handleFloatingCta() {
-            const floatingCta = document.getElementById('floatingCta');
-            const scrollPosition = window.scrollY;
-
-            if (scrollPosition > 800) {
-                floatingCta.classList.add('visible');
-            } else {
-                floatingCta.classList.remove('visible');
-            }
-        }
-
         // FAQ accordion
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
@@ -1632,23 +1311,12 @@
                 question.addEventListener('click', () => {
                     const isActive = item.classList.contains('active');
 
-                    // Close all FAQ items
                     faqItems.forEach(faq => faq.classList.remove('active'));
 
-                    // Toggle current item
                     if (!isActive) {
                         item.classList.add('active');
                     }
                 });
-            });
-
-            // Check scroll position on load and scroll
-            checkScroll();
-            handleFloatingCta();
-
-            window.addEventListener('scroll', () => {
-                checkScroll();
-                handleFloatingCta();
             });
 
             // Show cookie banner if not already accepted/declined
@@ -1657,7 +1325,6 @@
                 setTimeout(() => {
                     const banner = document.getElementById('cookieBanner');
                     banner.style.display = 'block';
-                    // Small delay to trigger transition
                     setTimeout(() => {
                         banner.classList.add('show');
                     }, 10);
@@ -1693,15 +1360,10 @@
         function hideCookieBanner() {
             const banner = document.getElementById('cookieBanner');
             banner.classList.remove('show');
-            banner.classList.add('hide');
-
-            // Remove from DOM after transition completes
             setTimeout(() => {
                 banner.style.display = 'none';
             }, 400);
         }
-
-        // Contact section uses mailto links - no form submission needed
     </script>
 </body>
 </html>
