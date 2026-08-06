@@ -232,7 +232,111 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
         }
-        
+
+        /* Share Button (mobile only) */
+        .share-btn {
+            display: none;
+            background: rgba(0, 212, 255, 0.2);
+            border: 2px solid var(--blue-bright);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn:hover {
+            background: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* QR Code Modal */
+        .qr-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-modal.active {
+            display: flex;
+        }
+
+        .qr-modal-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            max-width: 90%;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .qr-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--navy-dark);
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .qr-modal h3 {
+            color: var(--navy-dark);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .qr-modal p {
+            color: var(--navy-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .qr-modal-code {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .qr-modal-code img {
+            display: block;
+            width: 250px;
+            height: 250px;
+        }
+
+        .qr-url {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--blue-bright) !important;
+            font-size: 1.1rem;
+        }
+
         /* Hero with futuristic overlay */
         .hero {
             background: linear-gradient(135deg, rgba(10, 22, 40, 0.9), rgba(26, 41, 66, 0.85)), 
@@ -1588,6 +1692,10 @@
                 font-size: 0.85rem !important;
             }
 
+            .share-btn {
+                display: inline-block !important;
+            }
+
             .hero {
                 padding: 4rem 0 3rem !important;
             }
@@ -1698,10 +1806,24 @@
                 <a href="#expertise">Expertise</a>
                 <a href="#insights">Insights</a>
                 <a href="#faq">FAQ</a>
+                <button id="shareBtn" class="share-btn" aria-label="Share website">📱 Share</button>
                 <a href="#contact" class="contact-link">Get in touch</a>
             </div>
         </div>
     </nav>
+
+    <!-- QR Code Modal for Sharing -->
+    <div id="qrModal" class="qr-modal">
+        <div class="qr-modal-content">
+            <button class="qr-modal-close" aria-label="Close">&times;</button>
+            <h3>Share This Site</h3>
+            <p>Have your friend scan this QR code:</p>
+            <div class="qr-modal-code">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://www.nexushealthoperations.co.uk/" alt="QR Code to share website">
+            </div>
+            <p class="qr-url">nexushealthoperations.co.uk</p>
+        </div>
+    </div>
 
     <section class="hero" id="main-content">
         <div class="container">
@@ -2156,6 +2278,30 @@
                 banner.style.display = 'none';
             }, 400);
         }
+
+        // QR Code Modal for Sharing
+        const shareBtn = document.getElementById('shareBtn');
+        const qrModal = document.getElementById('qrModal');
+        const qrModalClose = document.querySelector('.qr-modal-close');
+
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                qrModal.classList.add('active');
+            });
+        }
+
+        if (qrModalClose) {
+            qrModalClose.addEventListener('click', () => {
+                qrModal.classList.remove('active');
+            });
+        }
+
+        // Close modal when clicking outside
+        qrModal.addEventListener('click', (e) => {
+            if (e.target === qrModal) {
+                qrModal.classList.remove('active');
+            }
+        });
 
         // Form submission handler (basic validation)
         const contactForm = document.getElementById('contactForm');
