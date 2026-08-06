@@ -341,6 +341,48 @@
             transform: translateY(-2px);
         }
 
+        /* Hero Content Layout with QR Code */
+        .hero-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 900px;
+        }
+
+        .hero-qr {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.8s forwards;
+        }
+
+        .qr-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+            border: 2px solid rgba(0, 212, 255, 0.5);
+        }
+
+        .qr-container img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .qr-label {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -1574,6 +1616,14 @@
                 font-size: 0.95rem !important;
             }
 
+            .hero-content-wrapper {
+                grid-template-columns: 1fr !important;
+            }
+
+            .hero-qr {
+                display: none !important;
+            }
+
             .contact-btn {
                 padding: 1rem 1.5rem !important;
                 font-size: 1rem !important;
@@ -1655,12 +1705,22 @@
 
     <section class="hero" id="main-content">
         <div class="container">
-            <h1>What's your next transformation breakthrough?</h1>
-            <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
-            <p class="markets">Serving NHS | Global Health Markets</p>
-            <div class="hero-cta">
-                <a href="#contact" class="cta-btn primary">Start Your Transformation</a>
-                <a href="#about" class="cta-btn secondary">Learn More</a>
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
+                    <h1>What's your next transformation breakthrough?</h1>
+                    <p class="subtitle">Operational excellence in healthcare digital transformation. We bridge the gap between strategy and delivery—bringing proven NHS expertise to Electronic Patient Record implementations, data platforms, and AI-enabled clinical workflows.</p>
+                    <p class="markets">Serving NHS | Global Health Markets</p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="cta-btn primary">Start Your Transformation</a>
+                        <a href="#about" class="cta-btn secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-qr">
+                    <div class="qr-container">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.nexushealthoperations.co.uk/" alt="Scan to view on mobile">
+                        <p class="qr-label">Scan to view on mobile</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
